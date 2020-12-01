@@ -4,7 +4,6 @@ class CreateChapters < ActiveRecord::Migration[6.0]
       t.string :name
       t.references :subject, null: false, foreign_key: true
       t.references :room, null: false, foreign_key: true
-      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

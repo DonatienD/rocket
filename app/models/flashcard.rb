@@ -1,6 +1,5 @@
 class Flashcard < ApplicationRecord
   belongs_to :mission
-  belongs_to :user
 
   validates :question, presence: true
   validates :answer, presence: true
