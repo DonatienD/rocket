@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Quelle matière voulez-vous créer ?</h1>
+    <div>
+      <%= simple_form_for [@subject] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name, label: 'Nom',class: "form-control" %>
+        </div>
+        <%= f.button :submit, 'Créer mon profil', class: "search-button" %>
+      <% end %>
+    </div>
+  </div>
