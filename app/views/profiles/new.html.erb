@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Bienvenue sur Rocket !</h1>
+    <div>
+      <%= simple_form_for [@profile] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :last_name, label: 'Nom',class: "form-control" %>
+          <%= f.input :first_name, label: 'Prénom', class: "form-control" %>
+          <%= f.input :gender, label: 'Genre', class: "form-control" %>
+        </div>
+        <%= f.button :submit, 'Créer mon profil', class: "search-button" %>
+      <% end %>
+    </div>
+  </div>
