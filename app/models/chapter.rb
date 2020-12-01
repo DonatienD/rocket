@@ -3,7 +3,7 @@ class Chapter < ApplicationRecord
   belongs_to :room
   belongs_to :user
 
-  has_many :missions
+  has_many :missions, dependent: :destroy
   has_many :flashcards, through: :missions
 
   validates :name, presence: true
