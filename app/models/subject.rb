@@ -1,4 +1,4 @@
-class Matiere < ApplicationRecord
+class Subject < ApplicationRecord
   has_one :room
   has_one :chapter
 

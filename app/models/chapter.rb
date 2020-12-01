@@ -1,5 +1,5 @@
 class Chapter < ApplicationRecord
-  belongs_to :matiere
+  belongs_to :subject
   belongs_to :room
   belongs_to :user
 
@@ -9,5 +9,5 @@ class Chapter < ApplicationRecord
   validates :name, presence: true
   validates :room_id, presence: true
   validates :user_id, presence: true
-  validates :matiere_id, presence: true
+  validates :subject_id, presence: true
 end
