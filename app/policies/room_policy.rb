@@ -5,8 +5,12 @@ class RoomPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    user.teacher? && record.user == user
+  end
+
   def new?
-    true
+    user.teacher?
   end
 
   def create?

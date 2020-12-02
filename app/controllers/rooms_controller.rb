@@ -1,5 +1,11 @@
 class RoomsController < ApplicationController
 
+  def show
+    @room = Room.find(params[:id])
+    @chapters = @room.chapters
+    authorize @room
+  end
+
   def new
     @subjects = current_user.subjects
     @room = Room.new
@@ -8,17 +14,10 @@ class RoomsController < ApplicationController
   end
 
   def create
-    raise
-    @room = Room.new
-    @room.user = current_user(room_params)
+    @room = Room.new(room_params)
     @room.save
     if @room.save
-      if current_user.teacher?
-        redirect_to dashboard_path
-      else
-        # To be changed when mission creation implemented
-        redirect_to dashboard_path
-      end
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -28,6 +27,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name)
+    params.require(:room).permit(:level, :subject_id)
   end
 end

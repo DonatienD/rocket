@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :create]
   resources :subjects, only: [:new, :create]
   resources :chapters, only: [:new, :create]
-  resources :rooms, only: [:new, :create]
+  resources :rooms, only: [:show, :new, :create]
 end
