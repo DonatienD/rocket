@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_153333) do
+ActiveRecord::Schema.define(version: 2020_12_02_140118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accesses", force: :cascade do |t|
-    t.bigint "profile_id", null: false
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["profile_id"], name: "index_accesses_on_profile_id"
+    t.bigint "user_id", null: false
     t.index ["room_id"], name: "index_accesses_on_room_id"
+    t.index ["user_id"], name: "index_accesses_on_user_id"
   end
 
   create_table "chapters", force: :cascade do |t|
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 2020_12_01_153333) do
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["room_id"], name: "index_chapters_on_room_id"
     t.index ["subject_id"], name: "index_chapters_on_subject_id"
+    t.index ["user_id"], name: "index_chapters_on_user_id"
   end
 
   create_table "flashcards", force: :cascade do |t|
@@ -40,7 +42,9 @@ ActiveRecord::Schema.define(version: 2020_12_01_153333) do
     t.text "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["mission_id"], name: "index_flashcards_on_mission_id"
+    t.index ["user_id"], name: "index_flashcards_on_user_id"
   end
 
   create_table "missions", force: :cascade do |t|
@@ -48,7 +52,9 @@ ActiveRecord::Schema.define(version: 2020_12_01_153333) do
     t.bigint "chapter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["chapter_id"], name: "index_missions_on_chapter_id"
+    t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -66,7 +72,9 @@ ActiveRecord::Schema.define(version: 2020_12_01_153333) do
     t.bigint "subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["subject_id"], name: "index_rooms_on_subject_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -90,13 +98,17 @@ ActiveRecord::Schema.define(version: 2020_12_01_153333) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "accesses", "profiles"
   add_foreign_key "accesses", "rooms"
+  add_foreign_key "accesses", "users"
   add_foreign_key "chapters", "rooms"
   add_foreign_key "chapters", "subjects"
+  add_foreign_key "chapters", "users"
   add_foreign_key "flashcards", "missions"
+  add_foreign_key "flashcards", "users"
   add_foreign_key "missions", "chapters"
+  add_foreign_key "missions", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "rooms", "subjects"
+  add_foreign_key "rooms", "users"
   add_foreign_key "subjects", "users"
 end

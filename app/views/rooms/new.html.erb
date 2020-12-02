@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Créer une nouvelle classe</h1>
+    <div>
+      <%= simple_form_for [@room] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :level, label: 'Niveau', placeholder: 'Exemple : 4e ou Terminale S',class: "form-control" %>
+          <%= f.association :subject, collection: @subjects, include_blank: false %>
+        </div>
+        <%= f.button :submit, 'Créer ma classe', class: "search-button" %>
+      <% end %>
+    </div>
+  </div>

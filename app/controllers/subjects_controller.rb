@@ -6,18 +6,32 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.new
-    @subject.user = current_user(profile_params)
-    @subject.save
-    if @subject.save
-      if current_user.teacher?
+    if current_user.teacher?
+      @subject = Subject.new(subject_params)
+      @subject.user = current_user
+      @subject.save
+      if @subject.save
+        flash[:notice] = "Votre matière a bien été créée"
         redirect_to dashboard_path
       else
-        # To be changed when mission creation implemented
-        redirect_to dashboard_path
+        flash[:alert] = "Une erreur est survenue lors de l'enregistrement de votre matière"
+        render :new
       end
     else
-      render :new
+      @subject = Subject.new(subject_params)
+      @subject.user = current_user
+      @subject.save
+      if @subject.save
+        @room = Room.new
+        @room.subject = @subject
+        @room.save
+        flash[:notice] = "Votre matière a bien été créée"
+        # To be changed when mission creation implemented
+        redirect_to dashboard_path
+      else
+        flash[:alert] = "Une erreur est survenue lors de l'enregistrement de votre matière"
+        render :new
+      end
     end
     authorize @subject
   end

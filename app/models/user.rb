@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :subjects
+  has_many :rooms
+  has_many :chapters
+  has_many :missions
+  has_many :flashcards
+  has_many :accesses
 end
