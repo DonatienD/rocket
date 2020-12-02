@@ -22,9 +22,18 @@ class SubjectsController < ApplicationController
       @subject.user = current_user
       @subject.save
       if @subject.save
+        # Create a new room (W/out user intervention)
         @room = Room.new
         @room.subject = @subject
+        @room.user = current_user
         @room.save
+
+        # Create a new access (W/out user intervention)
+        @access = Access.new
+        @access.user = current_user
+        @access.room = @room
+        @access.save
+
         flash[:notice] = "Votre matière a bien été créée"
         # To be changed when mission creation implemented
         redirect_to dashboard_path

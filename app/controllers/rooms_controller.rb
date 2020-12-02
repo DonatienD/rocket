@@ -18,6 +18,12 @@ class RoomsController < ApplicationController
     @room.user = current_user
     @room.save
     if @room.save
+      # Create a new access (W/out user intervention)
+        @access = Access.new
+        @access.user = current_user
+        @access.room = @room
+        @access.save
+
       redirect_to dashboard_path
     else
       render :new

@@ -22,10 +22,10 @@
   <% end %>
 <% else %>
   <p>Mes matières</p>
-  <% current_user.subjects.each do |subject| %>
-    <%= subject.name %>
+  <% current_user.rooms.each do |room| %>
+    <%= room.subject.name %>
     <ul>
-      <% subject.chapters.each do |chapter| %>
+      <% room.chapters.each do |chapter| %>
         <li>
           <%= link_to chapter.name, chapter_path(chapter) %>
         </li>
