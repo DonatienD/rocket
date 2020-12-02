@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   resources :profiles, only: [:new, :create]
   resources :subjects, only: [:new, :create]
+  resources :chapters, only: [:new, :create]
+  resources :rooms, only: [:new, :create]
 end

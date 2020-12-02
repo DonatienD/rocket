@@ -3,9 +3,9 @@
     <div>
       <%= simple_form_for [@profile] do |f| %>
         <div class="form-inputs">
+          <%= f.input :gender, label: 'Genre', as: :radio_buttons, collection: [['0', 'Mme'], ['1', 'Mr']], label_method: :second, value_method: :first %>
           <%= f.input :last_name, label: 'Nom',class: "form-control" %>
           <%= f.input :first_name, label: 'Prénom', class: "form-control" %>
-          <%= f.input :gender, label: 'Genre', class: "form-control" %>
         </div>
         <%= f.button :submit, 'Créer mon profil', class: "search-button" %>
       <% end %>
