@@ -13,10 +13,10 @@
     <% end %>
   <% end %>
 <% else %>
-  <% current_user.subjects.each do |subject| %>
-    <h2><%= subject.name %></h2>
-    <p><%= subject.chapters.count %> chapitres(s)</p>
-    <% subject.chapters.each do |chapter| %>
+  <% current_user.rooms.each do |room| %>
+    <h2><%= room.subject.name %></h2>
+    <p><%= room.chapters.count %> chapitres(s)</p>
+    <% room.chapters.each do |chapter| %>
     <!-- Make a card for each chapter -->
       <h3><%= chapter.name %></h3>
       <p><%= chapter.missions.count %> mission(s)</p>

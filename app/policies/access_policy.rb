@@ -4,4 +4,12 @@ class AccessPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def new?
+    !user.teacher?
+  end
+
+  def create?
+    new?
+  end
 end

@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Quel est l'identifiant de la classe à rejoindre ?</h1>
+    <div>
+      <%= simple_form_for [@access] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :room_id, label: 'ID', placeholder: '6342',class: "form-control" %>
+        </div>
+        <%= f.button :submit, 'Rejoindre la classe', class: "search-button" %>
+      <% end %>
+    </div>
+  </div>
