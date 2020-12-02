@@ -7,7 +7,7 @@ class SubjectsController < ApplicationController
 
   def create
     @subject = Subject.new
-    @subject.user = current_user(profile_params)
+    @subject.user = current_user(subject_params)
     @subject.save
     if @subject.save
       if current_user.teacher?
