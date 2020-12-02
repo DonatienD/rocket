@@ -20,10 +20,19 @@
 }
 
 .r-avatar {
-  border: 0.3em solid red;
   border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0.5em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    width: 130px;
+    padding: 5px;
+    background: red;
+    height: 130px;
+    background: linear-gradient(to right, red, purple);
+}
+
+.r-avatar img {
+    width: 100%;
+    border-radius: 50%;
 }
