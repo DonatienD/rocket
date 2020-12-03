@@ -287,169 +287,182 @@ m3.chapter = c2
 m3.save!
 
 
-m3 = Mission.new(name: "Des conflits entre puissances")
-m3.user = user2
-m3.chapter = c2
-m3.save!
-
-m4 = Mission.new(name: "Révolution Agricole")
+m4 = Mission.new(name: "Des conflits entre puissances")
 m4.user = user2
-m4.chapter = c3
+m4.chapter = c2
 m4.save!
 
-m5 = Mission.new(name: "Les secteurs clés")
+m5 = Mission.new(name: "Révolution Agricole")
 m5.user = user2
 m5.chapter = c3
 m5.save!
 
-m6 = Mission.new(name: "La suprématie de la Grande-Bretagne")
+m6 = Mission.new(name: "Les secteurs clés")
 m6.user = user2
 m6.chapter = c3
 m6.save!
 
-m7 = Mission.new(name: "Singularité du cas Français")
+m7 = Mission.new(name: "La suprématie de la Grande-Bretagne")
 m7.user = user2
 m7.chapter = c3
 m7.save!
 
-m8 = Mission.new(name: "La génèse du conflit")
+m8 = Mission.new(name: "Singularité du cas Français")
 m8.user = user2
-m8.chapter = c4
+m8.chapter = c3
 m8.save!
 
-m9 = Mission.new(name: "Guerre de mouvement")
+m9 = Mission.new(name: "La génèse du conflit")
 m9.user = user2
 m9.chapter = c4
 m9.save!
 
-m10 = Mission.new(name: "Guerre de position")
+m10 = Mission.new(name: "Guerre de mouvement")
 m10.user = user2
 m10.chapter = c4
 m10.save!
 
-m11 = Mission.new(name: "Fin des combats")
+m11 = Mission.new(name: "Guerre de position")
 m11.user = user2
 m11.chapter = c4
 m11.save!
 
-m12 = Mission.new(name: "Origines du conflit")
+m12 = Mission.new(name: "Fin des combats")
 m12.user = user2
-m12.chapter = c5
+m12.chapter = c4
 m12.save!
 
-m13 = Mission.new(name: "Membres de l'Axe")
+m13 = Mission.new(name: "Origines du conflit")
 m13.user = user2
 m13.chapter = c5
 m13.save!
 
-m14 = Mission.new(name: "Les Alliés")
+m14 = Mission.new(name: "Membres de l'Axe")
 m14.user = user2
 m14.chapter = c5
 m14.save!
 
-m15 = Mission.new(name: "La puissance aéronautique")
+m15 = Mission.new(name: "Les Alliés")
 m15.user = user2
 m15.chapter = c5
 m15.save!
 
-m14 = Mission.new(name: "Batailles Historiques")
-m14.user = user2
-m14.chapter = c5
-m14.save!
-
-m15 = Mission.new(name: "USA et fin du conflit")
-m15.user = user2
-m15.chapter = c5
-m15.save!
-
-m16 = Mission.new(name: "Origine de la Guerre Froide")
+m16 = Mission.new(name: "La puissance aéronautique")
 m16.user = user2
-m16.chapter = c6
+m16.chapter = c5
 m16.save!
 
-m17 = Mission.new(name: "Bloc de l'Est")
+m17 = Mission.new(name: "Batailles Historiques")
 m17.user = user2
-m17.chapter = c6
+m17.chapter = c5
 m17.save!
 
-m18 = Mission.new(name: "Bloc de l'Ouest")
+m18 = Mission.new(name: "USA et fin du conflit")
 m18.user = user2
-m18.chapter = c6
+m18.chapter = c5
 m18.save!
 
-m19 = Mission.new(name: "Asie")
+m19 = Mission.new(name: "Origine de la Guerre Froide")
 m19.user = user2
-m19.chapter = c7
+m19.chapter = c6
 m19.save!
 
-m20 = Mission.new(name: "Europe")
+m20 = Mission.new(name: "Bloc de l'Est")
 m20.user = user2
-m20.chapter = c7
+m20.chapter = c6
 m20.save!
 
-m21 = Mission.new(name: "Amérique")
+m21 = Mission.new(name: "Bloc de l'Ouest")
 m21.user = user2
-m21.chapter = c7
+m21.chapter = c6
 m21.save!
 
-m22 = Mission.new(name: "Une population en augmentation")
+m22 = Mission.new(name: "Asie")
 m22.user = user2
-m22.chapter = c8
+m22.chapter = c7
 m22.save!
 
-m23 = Mission.new(name: "Zones de tensions")
+m23 = Mission.new(name: "Europe")
 m23.user = user2
-m23.chapter = c8
+m23.chapter = c7
 m23.save!
 
-m24 = Mission.new(name: "De nouvelles interfaces")
+m24 = Mission.new(name: "Amérique")
 m24.user = user2
-m24.chapter = c9
+m24.chapter = c7
 m24.save!
 
-m25 = Mission.new(name: "Les Nords et les Suds")
+m25 = Mission.new(name: "Une population en augmentation")
 m25.user = user2
-m25.chapter = c9
+m25.chapter = c8
 m25.save!
 
-m26 = Mission.new(name: "Les différentes puissances")
+m26 = Mission.new(name: "Zones de tensions")
 m26.user = user2
-m26.chapter = c9
+m26.chapter = c8
 m26.save!
 
-m27 = Mission.new(name: "Les enjeux")
+m27 = Mission.new(name: "De nouvelles interfaces")
 m27.user = user2
-m27.chapter = c10
+m27.chapter = c9
 m27.save!
 
-m28 = Mission.new(name: "Les différents flux")
+m28 = Mission.new(name: "Les Nords et les Suds")
 m28.user = user2
-m28.chapter = c10
+m28.chapter = c9
 m28.save!
 
-m29 = Mission.new(name: "Les courants")
-m29.user = user1
-m29.chapter = c11
+m29 = Mission.new(name: "Les différentes puissances")
+m29.user = user2
+m29.chapter = c9
 m29.save!
 
-m30 = Mission.new(name: "Rimbaud et Romantisme")
-m30.user = user1
-m30.chapter = c11
+m30 = Mission.new(name: "Les enjeux")
+m30.user = user2
+m30.chapter = c10
 m30.save!
 
-m31 = Mission.new(name: "Les Misérables")
-m31.user = user1
-m31.chapter = c12
+m31 = Mission.new(name: "Les différents flux")
+m31.user = user2
+m31.chapter = c10
 m31.save!
 
-m32 = Mission.new(name: "Le Tour du Monde en 80 jours")
+m32 = Mission.new(name: "Les courants")
 m32.user = user1
-m32.chapter = c12
+m32.chapter = c11
 m32.save!
 
+m33 = Mission.new(name: "Rimbaud et Romantisme")
+m33.user = user1
+m33.chapter = c11
+m33.save!
 
+m34 = Mission.new(name: "Les Misérables")
+m34.user = user1
+m34.chapter = c12
+m34.save!
 
-puts "... #{Mission.count}/15 missions created.
+m35 = Mission.new(name: "Le Tour du Monde en 80 jours")
+m35.user = user1
+m35.chapter = c12
+m35.save!
+
+m36 = Mission.new(name: "Les formules")
+m36.user = user1
+m36.chapter = c13
+m36.save
+
+m37 = Mission.new(name: "Les formules")
+m37.user = user1
+m37.chapter = c14
+m37.save!
+
+m38 = Mission.new(name: "Les formules")
+m38.user = user1
+m38.chapter = c15
+m38.save!
+
+puts "... #{Mission.count}/38 missions created.
 "
 
 puts "
@@ -475,6 +488,9 @@ p Access.all
 
 puts "Chapter.all :"
 p Chapter.all
+
+puts "Mission.all :"
+p Mission.all
 
 
 puts "######################
