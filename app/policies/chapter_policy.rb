@@ -6,7 +6,7 @@ class ChapterPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    record.room.user == user
   end
 
   def create?
