@@ -6,7 +6,7 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def show?
-    user.teacher? && record.user == user
+    user.accesses.where(room_id: record.id).present?
   end
 
   def new?
