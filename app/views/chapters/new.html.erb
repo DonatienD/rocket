@@ -1,11 +1,17 @@
+
 <div class="container">
-  <h1>Créer un nouveau chapitre</h1>
-  <div>
-    <%= simple_form_for [@room, @chapter] do |f| %>
-      <div class="form-inputs">
-        <%= f.input :name, label: 'Nom', placeholder: 'Exemple : La 2nde Guerre Mondiale',class: "form-control" %>
+
+
+  <h1><%= @room.subject.name  %></h1>
+   <%= simple_form_for [@room, @chapter] do |f| %>
+   <div class="d-flex block">
+    <div class="create-input">
+      <%= f.input :name, label: 'Nom', placeholder: 'Exemple : La 2nde Guerre Mondiale',class: "form-control" %>
+      <%= f.button :submit, 'Enregistrer', class: "validate-button" %>
       </div>
-      <%= f.button :submit, 'Enregistrer', class: "search-button" %>
-    <% end %>
-  </div>
+
+   </div>
+   <% end %>
 </div>
+
+
