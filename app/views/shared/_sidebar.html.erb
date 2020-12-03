@@ -1,35 +1,39 @@
 <!-- Add style with classes (et avec classe aussi ;-]) -->
-<p><%= current_user.profile.first_name %> <%= current_user.profile.last_name %></p>
-<% if current_user.teacher? %>
-  <p>ENSEIGNANT</p>
-<% else %>
-  <p>ÉTUDIANT</p>
-<% end %>
-
-<%= link_to "Dashboard", dashboard_path %>
-
-<% if current_user.teacher? %>
-  <p>Mes classes</p>
-  <% current_user.subjects.each do |subject| %>
-  <%= subject.name %>
-    <ul>
-      <% subject.rooms.each do |room| %>
-        <li>
-          <%= link_to room.level, room_path(room) %>
-        </li>
-      <% end %>
-    </ul>
+<div class="container">
+  <div class="r-avatar" >
+    <img src="https://res.cloudinary.com/jackycloud44/image/upload/v1606931571/space-rocket-illustration-rocket-by_vexels_uq7roh.png" alt="avatar">
+  </div>
+  <p><%= current_user.profile.first_name %> <%= current_user.profile.last_name %></p>
+  <% if current_user.teacher? %>
+    <p>ENSEIGNANT</p>
+  <% else %>
+    <p>ÉTUDIANT</p>
   <% end %>
-<% else %>
-  <p>Mes matières</p>
-  <% current_user.rooms.each do |room| %>
-    <%= room.subject.name %>
-    <ul>
-      <% room.chapters.each do |chapter| %>
-        <li>
-          <%= link_to chapter.name, chapter_path(chapter) %>
-        </li>
-      <% end %>
-    </ul>
+
+  <%= link_to "Dashboard", dashboard_path %>
+  <% if current_user.teacher? %>
+    <p>Mes classes</p>
+    <% current_user.subjects.each do |subject| %>
+      <%= subject.name %>
+      <ul>
+        <% subject.rooms.each do |room| %>
+          <li>
+            <%= link_to room.level, room_path(room) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>Mes matières</p>
+    <% current_user.rooms.each do |room| %>
+      <%= room.subject.name %>
+      <ul>
+        <% room.chapters.each do |chapter| %>
+          <li>
+            <%= link_to chapter.name, chapter_path(chapter) %>
+          </li>
+        <% end %>
+       </ul>
+    <% end %>
   <% end %>
-<% end %>
+</div>

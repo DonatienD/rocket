@@ -1,1 +1,43 @@
 // Specific CSS for your home-page
+
+.body {
+  background-color: #1d2541;
+}
+.body .sidebar {
+  background-color: #222b4a;
+  border-right: 1px solid #d8dffd;
+  height: 100vh;
+  padding-top: 1em;
+}
+.principal-content {
+}
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 3em;
+  color: #d8dffd;
+}
+h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2em;
+  color: #d8dffd;
+
+}
+p {
+  color: #d8dffd;
+  font-family: 'Lato', sans-serif;
+}
+p a {
+  color: #d8dffd;
+  text-decoration: none;
+}
+li {
+  color: #d8dffd;
+  font-family: 'Lato', sans-serif;
+}
+li a {
+  color: #d8dffd;
+  text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
