@@ -5,6 +5,10 @@ class ChapterPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def new?
     record.room.user == user
   end

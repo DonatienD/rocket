@@ -1,7 +1,13 @@
 class ChaptersController < ApplicationController
-   before_action :set_room
+  before_action :set_room, only: [:new, :create]
 
-   def new
+  def show
+    redirect_to dashboard_path
+    @chapter = Chapter.find(params[:id])
+    authorize @chapter
+  end
+
+  def new
     @chapter = Chapter.new
     @chapter.room = @room
     authorize @chapter
