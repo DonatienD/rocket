@@ -18,3 +18,21 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.r-avatar {
+  border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    width: 130px;
+    padding: 5px;
+    background: red;
+    height: 130px;
+    background: linear-gradient(to right, red, purple);
+}
+
+.r-avatar img {
+    width: 100%;
+    border-radius: 50%;
+}

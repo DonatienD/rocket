@@ -1,0 +1,22 @@
+.r-card {
+  width: 13em;
+  height: 20em;
+  background-color: #667BBB;
+  border-radius: 15pt;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.r-card:hover {
+  width: 14em;
+  height: 21em;
+  background-color: #667BBB;
+  border-radius: 15pt;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.r-card p {
+  margin: 0 auto;
+}

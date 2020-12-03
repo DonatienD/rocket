@@ -1,0 +1,61 @@
+
+.green-button {
+  text-decoration: none;
+  color: #d8dffd;
+  border: 1px solid #d8dffd;
+  border-radius: 5pt;
+  padding: 0.5em 1em;
+}
+.green-button:hover {
+  text-decoration: none;
+  color: #d8dffd;
+  background-color: #447743;
+  padding: 0.7em 1.4em;
+  transition: 0.5s;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.red-button {
+  text-decoration: none;
+  color: #d8dffd;
+  border: 1px solid #d8dffd;
+  border-radius: 5pt;
+  padding: 0.5em 1em;
+}
+  .red-button:hover {
+  text-decoration: none;
+  color: #d8dffd;
+  background-color: #e9585e;
+  padding: 0.7em 1.4em;
+  transition: 0.5s;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.r-button {
+  text-decoration: none;
+  color: #d8dffd;
+  border: 1px solid #d8dffd;
+  border-radius: 5pt;
+  padding: 0.5em 1em;
+}
+.r-button:hover {
+  text-decoration: none;
+  color: #1d2541;
+  background-color: #d8dffd;
+  padding: 0.7em 1.4em;
+  transition: 0.5s;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.plus-button {
+  color: white;
+  font-size: 2em;
+  padding: 0 0.3em;
+  background-color: red;
+  border-radius: 50%;
+}
+.plus-button:hover {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  padding: 0 0.3em;
+  background-color: red;
+  border-radius: 50%;
+}
