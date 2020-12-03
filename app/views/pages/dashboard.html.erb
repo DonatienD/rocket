@@ -8,25 +8,25 @@
     <div class="col-md-9 principal-content">
       <h1>Bonjour <%= @profile.first_name %> </h1>
       <% if current_user.teacher? %>
-      <% current_user.subjects.each do |subject| %>
-      <h2><%= subject.name %></h2>
-      <p><%= subject.rooms.count %> classe(s)</p>
-      <% subject.rooms.each do |room| %>
-      <!-- Make a card for each room -->
-      <h3><%= room.level %></h3>
-      <p><%= room.chapters.count %> chapitre(s)</p>
-      <% end %>
-      <% end %>
+        <% current_user.subjects.each do |subject| %>
+          <h2><%= subject.name %></h2>
+          <p><%= subject.rooms.count %> classe(s)</p>
+          <% subject.rooms.each do |room| %>
+            <!-- Make a card for each room -->
+            <h3><%= room.level %></h3>
+            <p><%= room.chapters.count %> chapitre(s)</p>
+          <% end %>
+        <% end %>
       <% else %>
-      <% current_user.subjects.each do |subject| %>
-      <h2><%= subject.name %></h2>
-      <p><%= subject.chapters.count %> chapitres(s)</p>
-      <% subject.chapters.each do |chapter| %>
-      <!-- Make a card for each chapter -->
-      <h3><%= chapter.name %></h3>
-      <p><%= chapter.missions.count %> mission(s)</p>
-      <% end %>
-      <% end %>
+        <% current_user.rooms.each do |room| %>
+          <h2><%= room.subject.name %></h2>
+          <p><%= room.chapters.count %> chapitres(s)</p>
+          <% room.chapters.each do |chapter| %>
+            <!-- Make a card for each chapter -->
+            <h3><%= chapter.name %></h3>
+            <p><%= chapter.missions.count %> mission(s)</p>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>

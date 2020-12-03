@@ -5,34 +5,35 @@
   </div>
   <p><%= current_user.profile.first_name %> <%= current_user.profile.last_name %></p>
   <% if current_user.teacher? %>
-  <p>ENSEIGNANT</p>
+    <p>ENSEIGNANT</p>
   <% else %>
-  <p>ÉTUDIANT</p>
+    <p>ÉTUDIANT</p>
   <% end %>
+
   <%= link_to "Dashboard", dashboard_path %>
   <% if current_user.teacher? %>
-  <p>Mes classes</p>
-  <% current_user.subjects.each do |subject| %>
-  <%= subject.name %>
-  <ul>
-    <% subject.rooms.each do |room| %>
-    <li>
-      <%= link_to room.level, room_path(room) %>
-    </li>
+    <p>Mes classes</p>
+    <% current_user.subjects.each do |subject| %>
+      <%= subject.name %>
+      <ul>
+        <% subject.rooms.each do |room| %>
+          <li>
+            <%= link_to room.level, room_path(room) %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-  <% end %>
   <% else %>
-  <p>Mes matières</p>
-  <% current_user.subjects.each do |subject| %>
-  <%= subject.name %>
-  <ul>
-    <% subject.chapters.each do |chapter| %>
-    <li>
-      <%= link_to chapter.name, chapter_path(chapter) %>
-    </li>
+    <p>Mes matières</p>
+    <% current_user.rooms.each do |room| %>
+      <%= room.subject.name %>
+      <ul>
+        <% room.chapters.each do |chapter| %>
+          <li>
+            <%= link_to chapter.name, chapter_path(chapter) %>
+          </li>
+        <% end %>
+       </ul>
     <% end %>
-  </ul>
-  <% end %>
   <% end %>
 </div>
