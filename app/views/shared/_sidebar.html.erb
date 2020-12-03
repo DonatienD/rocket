@@ -5,25 +5,25 @@
   </div>
   <p><%= current_user.profile.first_name %> <%= current_user.profile.last_name %></p>
   <% if current_user.teacher? %>
-    <p>ENSEIGNANT</p>
+  <p>ENSEIGNANT</p>
   <% else %>
-    <p>ÉTUDIANT</p>
+  <p>ÉTUDIANT</p>
   <% end %>
-
   <%= link_to "Dashboard", dashboard_path %>
   <% if current_user.teacher? %>
-    <p>Mes classes</p>
-    <% current_user.subjects.each do |subject| %>
-      <%= subject.name %>
-      <ul>
-        <% subject.rooms.each do |room| %>
-          <li>
-            <%= link_to room.level, room_path(room) %>
-          </li>
-        <% end %>
-      </ul>
+  <p>Mes classes</p>
+  <% current_user.subjects.each do |subject| %>
+  <%= subject.name %>
+  <ul>
+    <% subject.rooms.each do |room| %>
+    <li>
+      <%= link_to room.level, room_path(room) %>
+    </li>
     <% end %>
+  </ul>
+  <% end %>
   <% else %>
+
     <p>Mes matières</p>
     <ul>
       <% current_user.rooms.each do |room| %>

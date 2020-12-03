@@ -1,9 +1,9 @@
 // Specific CSS for your home-page
 
-.body {
+body {
   background-color: #1d2541;
 }
-.body .sidebar {
+.sidebar {
   background-color: #222b4a;
   border-right: 1px solid #d8dffd;
   height: 100vh;
@@ -40,4 +40,18 @@ li a {
 }
 ul {
     list-style-type: none;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+textarea {
+  margin-right: 3em;
+  border-radius: 10pt;
+  width: 25em;
+}
+label {
+  color: #d8dffd;
+  font-family: 'Lato', sans-serif;
 }
