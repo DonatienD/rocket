@@ -1,12 +1,19 @@
-<h3><strong>Niveau : </strong><%= @room.level %> </h3>
-<h3><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
-
-
-<% @chapters.each do |chapter| %>
-<strong><%= chapter.name.capitalize %></strong>
+<h3 class="ml-3 mt-5"><strong>Niveau : </strong><%= @room.level %> </h3>
+<h3 class="ml-3 mt-2 mb-4"><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
+<div class="container">
+  <% @chapters.each do |chapter| %>
+  <h3><%= chapter.name.capitalize %></h3>
+  <div class="container d-flex">
   <% chapter.missions.each do |mission| %>
-            <%= link_to(mission_path(mission)) do %>
-              <strong><%= mission.name.capitalize %></strong>
-            <% end %>
+  <div class="r-card d-flex mr-3 mb-5 mt-2">
+    <div class="text-center">
+      <%= link_to(mission_path(mission)) do %>
+      <p><%= mission.name.capitalize %></p>
+    </div>
+  </div>
   <% end %>
+  <% end %>
+</div>
 <% end %>
+</div>
+<!-- ///////// -->
