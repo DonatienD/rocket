@@ -4,6 +4,7 @@ class MissionsController < ApplicationController
   def show
     @mission = Mission.find(params[:id])
     @chapter = @mission.chapter
+    @flashcard = Flashcard.new
 
     # Set created date to European format
     @date = @mission.created_at
