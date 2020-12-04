@@ -3,6 +3,9 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// External imports
+import '../stylesheets/application.scss';
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -21,9 +24,6 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-
-// External imports
-require("stylesheets/application.scss")
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

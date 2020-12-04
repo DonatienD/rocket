@@ -6,13 +6,13 @@ body {
 
 h1 {
   font-family: 'Quicksand', sans-serif;
-  font-size: 3em;
+  font-size: 3em im !important;
   color: #d8dffd;
 }
 
 h2 {
   font-family: 'Quicksand', sans-serif;
-  font-size: 2em;
+  font-size: 2em !important;
   color: #d8dffd;
 
 }
@@ -29,7 +29,7 @@ p {
 
   a {
     color: #d8dffd;
-    text-decoration: none;
+    text-decoration: none !important;
   }
 }
 
@@ -39,7 +39,7 @@ li {
 
   a {
     color: #d8dffd;
-    text-decoration: none;
+    text-decoration: none !important;
   }
 }
 
@@ -48,9 +48,9 @@ ul {
 }
 
 textarea {
-  margin-right: 3em;
-  border-radius: 10pt;
-  width: 25em;
+  margin-right: 3em !important;
+  border-radius: 10pt !important;
+  width: 25em !important;
 }
 
 label {
