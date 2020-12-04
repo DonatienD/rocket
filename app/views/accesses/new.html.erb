@@ -1,11 +1,24 @@
-<div class="container">
-    <h1>Quel est l'identifiant de la classe à rejoindre ?</h1>
-    <div>
-      <%= simple_form_for [@access] do |f| %>
-        <div class="form-inputs">
-          <%= f.input :room_id, label: 'ID', placeholder: '6342',class: "form-control" %>
+<div class="main-container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="sidebar">
+        <%= render 'shared/sidebar' %>
+      </div>
+    </div>
+    <div class="col-md-10 mt-3 principal-content">
+      <div class="container">
+        <h1 class="ml-3 mt-5">Quel est l'identifiant de la classe à rejoindre ?</h1>
+        <div>
+          <%= simple_form_for [@access] do |f| %>
+          <div class="create-input">
+            <%= f.input :room_id, label: 'ID', placeholder: '6342', class: "create-input" %>
+          </div>
+          <div class=mt-5>
+          <%= f.button :submit, 'Rejoindre la classe', class: "validate-button" %>
+          </div>
+          <% end %>
         </div>
-        <%= f.button :submit, 'Rejoindre la classe', class: "search-button" %>
-      <% end %>
+      </div>
     </div>
   </div>
+</div>
