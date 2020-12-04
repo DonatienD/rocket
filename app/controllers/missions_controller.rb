@@ -4,6 +4,11 @@ class MissionsController < ApplicationController
   def show
     @mission = Mission.find(params[:id])
     @chapter = @mission.chapter
+
+    # Set created date to European format
+    @date = @mission.created_at
+    @creation_date = "#{@date.day}.#{@date.month}.#{@date.year}"
+
     authorize @mission
   end
 
