@@ -23,14 +23,13 @@
   </ul>
   <% end %>
   <% else %>
-
-    <p>Mes matières</p>
-    <ul>
-      <% current_user.rooms.each do |room| %>
-        <li>
-          <%= link_to room.subject.name, room_path(room) %>
-        </li>
-      <% end %>
-    </ul>
+  <p>Mes matières</p>
+  <ul>
+    <% current_user.rooms.each do |room| %>
+    <li>
+      <%= link_to room.subject.name, room_path(room) %>
+    </li>
+    <% end %>
+  </ul>
   <% end %>
 </div>
