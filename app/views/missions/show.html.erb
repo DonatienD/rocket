@@ -18,22 +18,39 @@
       </button>
     </div>
 
-    <div class="new-flasgcard-form-box">
-      <h3>Ajouter une Flashcard</h3>
-      <div class="new-flasgcard-form">
-        <%= simple_form_for( [@mission, @flashcard], remote: true) do |f| %>
-          <div class="form-input">
-            <%= f.input :question, label: 'Question', error: 'Veuillez renseigner une question', class: "form-control" %>
+
+    <div class="new-flasgcard-form mt-15 sm:mt-10 width-98">
+        <%= simple_form_for( [@mission, @flashcard], remote: true, class: "mt-5 md:mt-2") do |f| %>
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="py-3 bg-white sm:p-6">
+            <h3 class="mb-3 text-2xl font-medium text-gray-700">Ajouter une Flashcard</h3>
+            <div class="flex">
+              <div class="flex-grow mx-4">
+                <label for="first_name" class="block text-lg font-medium text-gray-700">Question*</label>
+                <%= f.input :question, label: false, error: 'Veuillez renseigner une question', class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" %>
+              </div>
+
+              <div class="flex-grow mx-4">
+                <label for="first_name" class="block text-lg font-medium text-gray-700">Réponse*</label>
+                <%= f.input :answer, label: false, error: 'Veuillez renseigner une réponse', class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-m" %>
+              </div>
+            </div>
           </div>
-          <div class="form-input">
-            <%= f.input :answer, label: 'Réponse', error: 'Veuillez renseigner une réponse', class: "form-control" %>
+          <div class="px-3 py-2 bg-gray-50 text-right sm:px-6">
+            <%= f.button :submit, 'Enregistrer', class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
           </div>
-          <%= f.button :submit, 'Enregistrer', class: "save-button" %>
-        <% end %>
+        </div>
+      <% end %>
+    </div>
+
+
+    <div class="hidden sm:block width-98" aria-hidden="true">
+      <div class="py-5">
+        <div class="border-t border-gray-200"></div>
       </div>
     </div>
 
-    <div class="flashcards-list">
+    <div class="width-98">
       <h3>Flashcards enregistrées :</h3>
       <div class="flashcard-table">
         <div class="flex flex-col">
@@ -73,7 +90,7 @@
                         </td>
                         <td class="px-2 py-3 whitespace-nowrap text-right text-sm font-medium">
                           <div class="flex items-center">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Editer</a>
+                            <a href="#" class="text-blue-900 hover:text-blue-800">Editer</a>
                             <%= link_to(flashcard_path(flashcard),
                             method: :delete,
                             data: { confirm: "Voulez vous supprimer cette flashcard ?" },
