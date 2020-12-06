@@ -163,12 +163,12 @@ a7.user = user1
 a7.room = r1
 a7.save!
 
-a8 = Access.new
-a8.user = user1
-a8.room = r4
-a8.save!
+# a8 = Access.new
+# a8.user = user1
+# a8.room = r4
+# a8.save!
 
-puts "... #{Access.count}/8 accesses created.
+puts "... #{Access.count}/7 accesses created.
 "
 
 puts "Creating Chapters..."

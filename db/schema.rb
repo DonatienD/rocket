@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_140118) do
+ActiveRecord::Schema.define(version: 2020_12_06_165747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_140118) do
   end
 
   create_table "chapters", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "subject_id", null: false
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2020_12_02_140118) do
 
   create_table "flashcards", force: :cascade do |t|
     t.bigint "mission_id", null: false
-    t.text "question"
-    t.text "answer"
+    t.text "question", null: false
+    t.text "answer", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_140118) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "chapter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 2020_12_02_140118) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "gender"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "gender", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_140118) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

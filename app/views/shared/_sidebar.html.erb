@@ -1,35 +1,40 @@
 <!-- Add style with classes (et avec classe aussi ;-]) -->
-<div class="container shadow-inner">
+<div class="sidebar container relative">
   <div class="r-avatar" >
     <img src="https://res.cloudinary.com/jackycloud44/image/upload/v1606931571/space-rocket-illustration-rocket-by_vexels_uq7roh.png" alt="avatar">
   </div>
   <p><%= current_user.profile.first_name %> <%= current_user.profile.last_name %></p>
   <% if current_user.teacher? %>
-  <p>ENSEIGNANT</p>
+    <p>ENSEIGNANT</p>
   <% else %>
-  <p>ÉTUDIANT</p>
+    <p>ÉTUDIANT</p>
   <% end %>
+
   <%= link_to "Dashboard", dashboard_path %>
+
   <% if current_user.teacher? %>
-  <p>Mes classes</p>
-  <% current_user.subjects.each do |subject| %>
-  <%= subject.name %>
-  <ul>
-    <% subject.rooms.each do |room| %>
-    <li>
-      <%= link_to room.level, room_path(room) %>
-    </li>
+    <p>Mes classes</p>
+    <% current_user.subjects.each do |subject| %>
+      <%= subject.name %>
+      <ul>
+        <% subject.rooms.each do |room| %>
+        <li>
+          <%= link_to room.level, room_path(room) %>
+        </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-  <% end %>
   <% else %>
-  <p>Mes matières</p>
-  <ul>
-    <% current_user.rooms.each do |room| %>
-    <li>
-      <%= link_to room.subject.name, room_path(room) %>
-    </li>
-    <% end %>
-  </ul>
+    <p>Mes matières</p>
+    <ul>
+      <% current_user.rooms.each do |room| %>
+      <li>
+        <%= link_to room.subject.name, room_path(room) %>
+      </li>
+      <% end %>
+    </ul>
   <% end %>
+  <div class="absolute bottom-0 text-red-700 mx-auto mb-2">
+    <strong><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></strong>
+  </div>
 </div>

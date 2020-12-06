@@ -10,12 +10,106 @@
     <div class="mission-info-box flex justify-between mt-6 pr-6">
       <div class="mission-info-box-text">
         <h1 class="text-5xl mb-4"><%= @mission.name %></h1>
-        <h2>Créée le : <%= @creation_date %></h2>
-        <h2>Chapitre : <%= @chapter.name %></h2>
+        <h3 class="mb-1 text-2xl font-medium">Créée le : <%= @creation_date %></h3>
+        <h3 class="mb-1 text-2xl font-medium">Chapitre : <%= @chapter.name %></h3>
       </div>
       <button class="text-red-700 text-md align-text-bottom h-auto">
         Supprimer la mission
       </button>
+    </div>
+
+
+    <div class="new-flasgcard-form mt-15 sm:mt-10 width-98">
+        <%= simple_form_for( [@mission, @flashcard], remote: true, class: "mt-5 md:mt-2") do |f| %>
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="py-3 bg-white sm:p-6">
+            <h3 class="mb-3 text-2xl font-medium text-gray-700">Ajouter une Flashcard</h3>
+            <div class="flex">
+              <div class="flex-grow mx-4">
+                <label for="first_name" class="block text-lg font-medium text-gray-700">Question*</label>
+                <%= f.input :question, label: false, error: 'Veuillez renseigner une question', class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" %>
+              </div>
+
+              <div class="flex-grow mx-4">
+                <label for="first_name" class="block text-lg font-medium text-gray-700">Réponse*</label>
+                <%= f.input :answer, label: false, error: 'Veuillez renseigner une réponse', class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-m" %>
+              </div>
+            </div>
+          </div>
+          <div class="px-3 py-2 bg-gray-50 text-right sm:px-6">
+            <%= f.button :submit, 'Enregistrer', class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+    <div class="hidden sm:block width-98" aria-hidden="true">
+      <div class="py-5">
+        <div class="border-t border-gray-200"></div>
+      </div>
+    </div>
+
+    <div class="width-98">
+      <h3 class="mb-3 text-2xl font-medium">Flashcards enregistrées :</h3>
+      <div class="flashcard-table">
+        <div class="flex flex-col">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+              <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="relative px-6 py-3">
+                        <span class="sr-only">Number</span>
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Question
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Réponse
+                      </th>
+                      <th scope="col" class="relative px-6 py-3">
+                        <span class="sr-only">Edit</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <% i = 0 %>
+                    <% @flashcards.each do |flashcard| %>
+                    <% i += 1 %>
+                      <tr>
+                        <td class="px-6 py-3 whitespace-nowrap text-sm text-gray-500">
+                          <%= i %>
+                        </td>
+                        <td class="px-6 py-3 whitespace-nowrap">
+                          <div class="text-sm text-gray-900"><%= flashcard.question %></div>
+                        </td>
+                        <td class="px-6 py-3 whitespace-nowrap">
+                          <div class="text-sm text-gray-900"><%= flashcard.answer %></div>
+                        </td>
+                        <td class="px-2 py-3 whitespace-nowrap text-right text-sm font-medium">
+                          <div class="flex items-center">
+                            <a href="#" class="text-blue-900 hover:text-blue-800">Editer</a>
+                            <%= link_to(flashcard_path(flashcard),
+                            method: :delete,
+                            data: { confirm: "Voulez vous supprimer cette flashcard ?" },
+                            remote: true) do %>
+                              <svg class="h-5 w-5 ml-5 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                            <% end %>
+                          </div>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

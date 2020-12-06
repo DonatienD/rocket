@@ -7,7 +7,7 @@ class MissionPolicy < ApplicationPolicy
 
   def show?
     room_id = record.chapter.room.id
-    user.accesses.where(room_id: room_id).present?
+    user.accesses.where(room_id: room_id).present? && record.user == user
   end
 
   def new?

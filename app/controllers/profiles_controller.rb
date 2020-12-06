@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
+    authorize @profile
     if @profile.save
       if current_user.teacher?
         redirect_to new_subject_path
@@ -21,7 +22,6 @@ class ProfilesController < ApplicationController
     else
       render :new
     end
-    authorize @profile
   end
 
   private

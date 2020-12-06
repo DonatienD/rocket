@@ -9,8 +9,8 @@ class ChaptersController < ApplicationController
 
   def new
     @chapter = Chapter.new
-    @chapter.room = @room
     authorize @chapter
+    @chapter.room = @room
   end
 
   def create
@@ -18,13 +18,13 @@ class ChaptersController < ApplicationController
     @chapter.user = current_user
     @chapter.room = @room
     @chapter.subject = @room.subject
+    authorize @chapter
     @chapter.save
     if @chapter.save
       redirect_to room_path(@room)
     else
       render :new
     end
-    authorize @chapter
   end
 
   private
