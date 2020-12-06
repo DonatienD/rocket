@@ -10,8 +10,8 @@
     <div class="mission-info-box flex justify-between mt-6 pr-6">
       <div class="mission-info-box-text">
         <h1 class="text-5xl mb-4"><%= @mission.name %></h1>
-        <h2>Créée le : <%= @creation_date %></h2>
-        <h2>Chapitre : <%= @chapter.name %></h2>
+        <h3 class="mb-1 text-2xl font-medium">Créée le : <%= @creation_date %></h3>
+        <h3 class="mb-1 text-2xl font-medium">Chapitre : <%= @chapter.name %></h3>
       </div>
       <button class="text-red-700 text-md align-text-bottom h-auto">
         Supprimer la mission
@@ -51,7 +51,7 @@
     </div>
 
     <div class="width-98">
-      <h3>Flashcards enregistrées :</h3>
+      <h3 class="mb-3 text-2xl font-medium">Flashcards enregistrées :</h3>
       <div class="flashcard-table">
         <div class="flex flex-col">
           <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
