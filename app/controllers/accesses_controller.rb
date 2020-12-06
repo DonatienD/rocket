@@ -8,13 +8,13 @@ class AccessesController < ApplicationController
   def create
     @access = Access.new(access_params)
     @access.user = current_user
+    authorize @access
     @access.save
     if @access.save
       redirect_to dashboard_path
     else
       render :new
     end
-    authorize @access
   end
 
   private

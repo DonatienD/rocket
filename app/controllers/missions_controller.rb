@@ -4,13 +4,13 @@ class MissionsController < ApplicationController
   def show
     @mission = Mission.find(params[:id])
     @chapter = @mission.chapter
+    authorize @mission
     @flashcard = Flashcard.new
+    @flashcards = @mission.flashcards
 
     # Set created date to European format
     @date = @mission.created_at
     @creation_date = "#{@date.day}.#{@date.month}.#{@date.year}"
-
-    authorize @mission
   end
 
   def new
@@ -23,13 +23,13 @@ class MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user = current_user
     @mission.chapter = @chapter
+    authorize @mission
     @mission.save
     if @mission.save
       redirect_to mission_path(@mission)
     else
       render :new
     end
-    authorize @mission
   end
 
   private

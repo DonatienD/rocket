@@ -2,20 +2,21 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @chapters = @room.chapters
     authorize @room
+    @chapters = @room.chapters
   end
 
   def new
     @subjects = current_user.subjects
     @room = Room.new
-    @room.level = ""
     authorize @room
+    @room.level = ""
   end
 
   def create
     @room = Room.new(room_params)
     @room.user = current_user
+    authorize @room
     @room.save
     if @room.save
       # Create a new access (W/out user intervention)
@@ -28,7 +29,6 @@ class RoomsController < ApplicationController
     else
       render :new
     end
-    authorize @room
   end
 
   private

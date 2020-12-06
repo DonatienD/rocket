@@ -9,6 +9,7 @@ class SubjectsController < ApplicationController
     if current_user.teacher?
       @subject = Subject.new(subject_params)
       @subject.user = current_user
+      authorize @subject
       @subject.save
       if @subject.save
         flash[:notice] = "Votre matière a bien été créée"
@@ -20,6 +21,7 @@ class SubjectsController < ApplicationController
     else
       @subject = Subject.new(subject_params)
       @subject.user = current_user
+      authorize @subject
       @subject.save
       if @subject.save
         # Create a new room (W/out user intervention)
@@ -42,7 +44,6 @@ class SubjectsController < ApplicationController
         render :new
       end
     end
-    authorize @subject
   end
 
 
