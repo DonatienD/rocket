@@ -32,6 +32,13 @@ class MissionsController < ApplicationController
     end
   end
 
+  def play
+    @mission = Mission.find(params[:id])
+    @chapter = @mission.chapter
+    authorize @mission
+    @flashcards = @mission.flashcards
+  end
+
   private
 
   def set_chapter

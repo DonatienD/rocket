@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :create]
   resources :missions, only: :show do
     resources :flashcards, only: [:create]
+    member do
+      get :play
+    end
   end
   resources :rooms, only: :show
   resources :rooms, only: [:new, :create] do
