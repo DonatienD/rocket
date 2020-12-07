@@ -17,4 +17,9 @@ class MissionPolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def play?
+    room_id = record.chapter.room.id
+    user.accesses.where(room_id: room_id).present?
+  end
 end
