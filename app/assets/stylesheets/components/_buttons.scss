@@ -94,5 +94,20 @@
 
 }
 
+.button-home {
+  text-decoration: none;
+  color: #d8dffd;
+  border: 1px solid #d8dffd;
+  border-radius: 5pt;
+  padding: 0.5em 1em;
+}
+
+.button-home:hover {
+  text-decoration: none;
+  color: #1d2541;
+  background-color: #d8dffd;
+  transition: 0.5s;
+}
+
 
 
