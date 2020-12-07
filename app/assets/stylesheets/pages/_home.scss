@@ -1,7 +1,30 @@
 // Specific CSS for your home-page
 
+.circle {
+  width: fluid;
+  height: fluid;
+  background: linear-gradient(to bottom right, blue, red);
+  border-radius: 50%;
+  max-width: 21em;
+  margin: 0px auto;
+}
+
+.rocket p {
+  font-family: 'Merienda One', cursive;
+  text-align: center;
+  font-size: 4em;
+}
+
 body {
   background-color: #1d2541;
+
+}
+
+.background {
+  background-image: url("https://res.cloudinary.com/jackycloud44/image/upload/v1607353428/Rocket-vector-02-HQ_jdb2rm.jpg");
+  background-position: 8% 6%;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 h1 {
@@ -65,3 +88,6 @@ label {
 .principal-content {
 }
 
+.centrage-texte {
+  text-align: center;
+}

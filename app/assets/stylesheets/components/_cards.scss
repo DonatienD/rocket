@@ -1,20 +1,27 @@
 .r-card {
   width: 13em;
   height: 17em;
-  background: linear-gradient(-45deg, #AD2831, #1F3E5A);
+  // background: linear-gradient(-45deg, #AD2831, #1F3E5A);
   border-radius: 15pt;
   // display: flex;
+  background-size: cover;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
-}
-
+  background-image: url("https://res.cloudinary.com/jackycloud44/image/upload/v1607353428/Rocket-vector-02-HQ_jdb2rm.jpg");
+  background-position: 1% 66%;
+  background: url("https://res.cloudinary.com/jackycloud44/image/upload/v1607337627/sky-rocket-illustration-by-Vexels_bwr6h6.png") 8% 412%/contain no-repeat, url("https://res.cloudinary.com/jackycloud44/image/upload/v1607353428/Rocket-vector-02-HQ_jdb2rm.jpg") 67% 50% / 251% no-repeat;
+  }
 .r-card:hover {
   transform:scale(1.1);
   display: flex;
-  transition: 0.5s;
+  transition: 1s;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  background: url("https://res.cloudinary.com/jackycloud44/image/upload/v1607337627/sky-rocket-illustration-by-Vexels_bwr6h6.png") 8% -313%/contain no-repeat, url("https://res.cloudinary.com/jackycloud44/image/upload/v1607353428/Rocket-vector-02-HQ_jdb2rm.jpg") 67% 50% / 251% no-repeat;
 }
 .r-card p {
   margin: 0 auto;
 }
+
+
+
