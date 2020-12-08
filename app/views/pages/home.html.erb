@@ -8,8 +8,8 @@
             <p class="mb-3 text-large" style="text-align: justify">Fini les longues fiches de révision, dites bonjour à Rocket et son système d'apprentissage par cartes mentales.
             </p>
             <div class="mt-5" style="text-align: center">
-              <button class="button-home">Sign in</button>
-              <button class="button-home ml-2">Create an account</button>
+              <%= link_to "S'identifier", dashboard_path, class: "button-home" %>
+              <%= link_to "Créer un compte", new_user_registration_path, class: "button-home ml-2" %>
             </div>
           </div>
         </div>
