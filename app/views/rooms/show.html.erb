@@ -4,24 +4,49 @@
       <%= render 'shared/sidebar' %>
     </div>
     <div class="col-md-10 principal-content">
-      <div class="d-flex my-5">
-      <h3 class="ml-3 mr-3"><strong>Niveau : </strong><%= @room.level %> </h3>
-      <h3 class="ml-3"><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
+      <div class="d-flex justify-between my-5">
+        <% if current_user.teacher? %>
+          <h2 class="mx-3"><strong>Niveau : </strong><%= @room.level %> </h3>
+          <h3 class="mx-3"><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
+        <% else %>
+          <h2 class="ml-3 mr-3"><strong><%= @room.subject.name %></strong></h3>
+        <% end %>
       </div>
       <div class="container">
         <% @chapters.each do |chapter| %>
-        <h3><%= chapter.name.capitalize %></h3>
-        <div class="container d-flex">
-          <% chapter.missions.each do |mission| %>
-          <div class="r-card d-flex mr-3 mb-5 mt-2">
-            <div class="text-center">
-              <%= link_to(mission_path(mission)) do %>
-              <h4 class="mb-5"><%= mission.name.capitalize %></h4>
-            </div>
+          <h3><%= chapter.name %></h3>
+          <div class="container d-flex">
+            <% chapter.missions.each do |mission| %>
+            <!-- If teacher, click on FC to go to edit view -->
+              <% if current_user.teacher? %>
+                <%= link_to mission_path(mission) do %>
+                  <div class="r-card d-flex mr-3 mb-5 mt-2">
+                    <div class="text-center">
+                      <h4 class="mb-5"><%= mission.name %></h4>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+              <!-- If Student, click on FC to play -->
+                <div class="r-card d-flex mr-3 mb-5 mt-2 relative">
+                  <% if policy(mission).show? && !current_user.teacher? %>
+                    <%= link_to mission_path(mission) do %>
+                      <div class="edit-icon absolute top-2 right-2 opacity-60">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#d8dffd">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <%= link_to play_mission_path(mission) do %>
+                    <div class="text-center w-full h-full">
+                      <h4 class="mb-5"><%= mission.name %></h4>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-          <% end %>
-          <% end %>
-        </div>
         <% end %>
       </div>
     </div>
