@@ -4,8 +4,10 @@
       <%= render 'shared/sidebar' %>
     </div>
     <div class="col-md-10 principal-content">
-      <h3 class="ml-3 mt-5"><strong>Niveau : </strong><%= @room.level %> </h3>
-      <h3 class="ml-3 mt-2 mb-4"><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
+      <div class="d-flex my-5">
+      <h3 class="ml-3 mr-3"><strong>Niveau : </strong><%= @room.level %> </h3>
+      <h3 class="ml-3"><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
+      </div>
       <div class="container">
         <% @chapters.each do |chapter| %>
         <h3><%= chapter.name.capitalize %></h3>
@@ -14,7 +16,7 @@
           <div class="r-card d-flex mr-3 mb-5 mt-2">
             <div class="text-center">
               <%= link_to(mission_path(mission)) do %>
-              <p><%= mission.name.capitalize %></p>
+              <h4 class="mb-5"><%= mission.name.capitalize %></h4>
             </div>
           </div>
           <% end %>
@@ -25,4 +27,4 @@
     </div>
   </div>
 </body>
-<!-- ///////// -->
+

@@ -4,7 +4,7 @@
       <%= render 'shared/sidebar' %>
     </div>
     <div class="col-md-10 principal-content">
-      <h1 class="mb-5">Bonjour <%= @profile.first_name %> </h1>
+      <h1 class="mb-5 mt-3">Bonjour <%= @profile.first_name %> </h1>
       <% if current_user.teacher? %>
       <% current_user.subjects.each do |subject| %>
       <h2><%= subject.name %></h2>
@@ -24,14 +24,14 @@
       <% else %>
       <% current_user.rooms.each do |room| %>
       <h2><%= room.subject.name %></h2>
-      <p><%= room.chapters.count %> chapitres(s)</p>
+      <p class="mb-3"><%= room.chapters.count %> chapitres(s)</p>
       <div class="container d-flex">
         <% room.chapters.each do |chapter| %>
         <!-- Make a card for each chapter -->
         <div class="r-card d-flex mr-3 mb-5 mt-2">
           <div class="text-center">
-            <h3><%= chapter.name %></h3>
-            <p><%= chapter.missions.count %> mission(s)</p>
+            <h4><%= chapter.name %></h4>
+            <p class="mb-5"><%= chapter.missions.count %> mission(s)</p>
           </div>
         </div>
         <% end %>
