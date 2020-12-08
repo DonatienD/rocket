@@ -1,4 +1,14 @@
-<div class="all-flashcards my-15">
+<div class="-mt-7 absolute">
+  <%= link_to room_path(@chapter.room) do %>
+    <div id="return-top" class= "w-full inline-flex justify-center items-center rounded-md shadow-sm px-3 py-2.5 bg-white text-base font-small text-gray-700 hover:text-pink-800 hover:bg-gray-800 hover:no-underline transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+      <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg><%= @chapter.subject.name %>
+    </div>
+  <% end %>
+</div>
+
+<div class="all-flashcards">
   <% @flashcards.each_with_index do |flashcard, index| %>
 
     <div class="flashcard <%=index == 0 ? 'block' : 'hidden' %>">
@@ -23,7 +33,7 @@
       </div>
 
 
-      <div class="flashcard-side hidden sm:mt-10 w-1/2 m-auto">
+      <div class="flashcard-side hidden sm:mt-10 w-1/2 mx-auto my-1/4">
         <div class="shadow overflow-hidden sm:rounded-md">
           <div class="py-3 bg-white sm:p-6">
             <h3 class="mb-3 text-2xl font-medium text-gray-700"><%= @mission.name %></h3>
@@ -31,19 +41,14 @@
               <label for="first_name" class="block text-lg font-medium text-gray-700">Question :</label>
               <p class="text-lg text-gray-900 subpixel-antialiased font-semibold"><%= flashcard.question %></p>
             </div>
-            <div class="mb-3">
+            <div class="mb-1">
               <label for="first_name" class="block text-lg font-medium text-gray-700">Réponse :</label>
               <p class="text-lg text-gray-900 subpixel-antialiased font-semibold"><%= flashcard.answer %></p>
             </div>
-
-            <div class="hidden sm:block width-98" aria-hidden="true">
-              <div class="my-2">
-                <div class="border-t border-gray-400"></div>
-              </div>
-            </div>
-
-            <label for="first_name" class="block text-lg font-medium text-gray-700">Votre réponse :</label>
-            <p class="text-lg text-gray-900 subpixel-antialiased font-semibold"><%= params[:student_answer] if params[:student_answer].present? %></p>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-left sm:p-3">
+           <label for="first_name" class="block text-lg font-medium text-gray-700">Votre réponse :</label>
+           <p class="insert-answer-here text-lg text-gray-800 subpixel-antialiased font-semibold"></p>
           </div>
         </div>
       </div>
@@ -51,7 +56,7 @@
   <% end %>
 </div>
 
-<div class="flex justify-evenly mt-3">
+<div class="flex justify-evenly mt-4 w-1/2 mx-auto">
   <button type="button" id="correct" class="hidden w-full inline-flex justify-center rounded-md shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
     Je le savais
   </button>
@@ -59,7 +64,7 @@
     Je ne le savais pas
   </button>
 </div>
-<div class="flex justify-evenly mt-3">
+<div class="flex justify-evenly mt-3 w-1/2 mx-auto">
   <%= link_to room_path(@chapter.room) do %>
     <div id="return" class= "hidden w-full inline-flex justify-center items-center rounded-md shadow-sm px-4 py-3 bg-white text-base font-medium text-gray-700 hover:text-pink-800 hover:bg-gray-800 hover:no-underline transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
       <svg class="h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

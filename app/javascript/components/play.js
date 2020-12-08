@@ -9,8 +9,14 @@ const flipCard = (currentFlashcard) => {
   currentFlashcardSide.nextElementSibling.classList.add("block");
 };
 
-export const initPlay = () => {
+// Select user answer and display it on other side of FC
+const PromptUserAnswer = (currentFlashcard) => {
+  // Select user answer
+  const userAnswer = currentFlashcard.querySelector("textarea").value;
+  currentFlashcard.querySelector(".insert-answer-here").innerText = userAnswer;
+};
 
+export const initPlay = () => {
   // Select all FC
   const flashcards = document.querySelectorAll(".flashcard");
   // Select flip button ('Voir la réponse')
@@ -21,6 +27,7 @@ export const initPlay = () => {
   const incorrectButton = document.querySelector("#incorrect");
   // Select return button
   const returnButton = document.querySelector("#return");
+  const topReturnButton = document.querySelector("#return-top");
 
   const goToNextCard = (event) => {
     // Select current FC (both sides)
@@ -55,6 +62,8 @@ export const initPlay = () => {
   flipCardButtons.forEach((flipCardButton, index) => {
     // Add event listener to each button
     flipCardButton.addEventListener("click", (event) => {
+      // Display user answer on other side of FC
+      PromptUserAnswer(flashcards[index]);
       // Each button is associated with the action of flipping its card
       flipCard(flashcards[index]);
       // Check if last FC
@@ -62,6 +71,7 @@ export const initPlay = () => {
         // Display return button, to go back to subject
         returnButton.classList.remove("hidden");
         returnButton.classList.add("block");
+        topReturnButton.classList.add("hidden");
       } else {
         // Display validation buttons, to go to next card
         correctButton.classList.remove("hidden");
