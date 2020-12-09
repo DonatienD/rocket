@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :flashcards, only: :destroy
   resources :profiles, only: [:new, :create]
-  resources :missions, only: :show do
+  resources :missions, only: [:show, :destroy] do
     resources :flashcards, only: [:create]
     member do
       get :play

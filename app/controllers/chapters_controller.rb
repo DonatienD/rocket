@@ -9,8 +9,8 @@ class ChaptersController < ApplicationController
 
   def new
     @chapter = Chapter.new
-    authorize @chapter
     @chapter.room = @room
+    authorize @chapter
   end
 
   def create

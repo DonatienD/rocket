@@ -39,6 +39,15 @@ class MissionsController < ApplicationController
     @flashcards = @mission.flashcards
   end
 
+  def destroy
+    @mission = Mission.find(params[:id])
+    authorize @mission
+    @chapter = @mission.chapter
+    @mission.destroy
+    redirect_to room_path(@chapter.room)
+    flash[:notice] = "La mission a bien été supprimée"
+  end
+
   private
 
   def set_chapter

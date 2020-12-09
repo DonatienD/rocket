@@ -6,8 +6,7 @@ class MissionPolicy < ApplicationPolicy
   end
 
   def show?
-    room_id = record.chapter.room.id
-    user.accesses.where(room_id: room_id).present? && record.user == user
+    record.user == user
   end
 
   def new?
@@ -21,5 +20,9 @@ class MissionPolicy < ApplicationPolicy
   def play?
     room_id = record.chapter.room.id
     user.accesses.where(room_id: room_id).present?
+  end
+
+  def destroy?
+    record.user == user
   end
 end
