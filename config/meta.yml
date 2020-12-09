@@ -1,0 +1,5 @@
+meta_product_name: "Rocket"
+meta_title: "Rocket - Apprenez vos cours plus rapidement et plus efficacement."
+meta_description: "Fini les longues fiches de révision, dites bonjour à Rocket et son système d'apprentissage par cartes mentales."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+#twitter_account: "@product_twitter_account"   # required for Twitter Cards

@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "https://rocket496.herokuapp.com/" }
+  config.action_mailer.default_url_options = { host: "http://http://www.rocketlearning.space/" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
