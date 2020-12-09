@@ -215,7 +215,7 @@ c7.room = r3
 c7.subject = r3.subject
 c7.save!
 
-c8 = Chapter.new(name: "Problémtiques environnementales")
+c8 = Chapter.new(name: "Problématiques environnementales")
 c8.user = user2
 c8.room = r3
 c8.subject = r3.subject

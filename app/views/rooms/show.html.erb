@@ -11,6 +11,18 @@
         <% else %>
           <h2 class="ml-3 mr-3"><strong><%= @room.subject.name %></strong></h3>
         <% end %>
+        <% if @room.user == current_user %>
+          <div class=" flex flex-col mr-4"> <!-- my-2 -ml-3 mr-4 -->
+            <%= link_to new_room_chapter_path(@room) do %>
+              <div id="return-top" class= "w-full inline-flex justify-center items-center rounded-md shadow-sm px-3 py-2.5 bg-white text-base font-small text-gray-700 hover:text-pink-800 hover:bg-gray-800 hover:no-underline transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Nouveau chapitre
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="container">
         <% @chapters.each do |chapter| %>
