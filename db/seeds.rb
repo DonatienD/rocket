@@ -465,6 +465,224 @@ m38.save!
 puts "... #{Mission.count}/38 missions created.
 "
 
+
+puts "Creating Flashcards..."
+# Seed Flashcards
+f1 = Flashcard.new(
+  question: "À quelle date s'ouvrent les états généraux ?",
+  answer: "05 mai 1789")
+f1.user = user2
+f1.mission = m1
+f1.save!
+
+f2 = Flashcard.new(
+  question: "Quelle part de la population représente le Clergé ?",
+  answer: "0,5 %")
+f2.user = user2
+f2.mission = m1
+f2.save!
+
+f3 = Flashcard.new(
+  question: "Comment s'appelle le régime politique jusqu'en 1789 ?",
+  answer: "La monarchie absolue de droit divin.")
+f3.user = user2
+f3.mission = m1
+f3.save!
+
+f4 = Flashcard.new(
+  question: "En quelle année les États-Unis déclarent-ils leur indépendance contre la couronne britannique ?",
+  answer: "1776")
+f4.user = user2
+f4.mission = m1
+f4.save!
+
+f5 = Flashcard.new(
+  question: "Lequel de ces philosophes n'est pas considéré comme philosophe des Lumières ?
+  Voltaire - Diderot - Monstequieux - Rousseau - Marx",
+  answer: "Marx")
+f5.user = user2
+f5.mission = m1
+f5.save!
+
+f6 = Flashcard.new(
+  question: "Quel avocat et journaliste interpelle la foule et l'appelle à « prendre les armes contre le gouvernement du roi » ?",
+  answer: "Camille Desmoulins")
+f6.user = user2
+f6.mission = m2
+f6.save!
+
+f7 = Flashcard.new(
+  question: "Combien de prisonniers étaient retenus dans la prison de la Bastille ?",
+  answer: "7")
+f7.user = user2
+f7.mission = m2
+f7.save!
+
+f8 = Flashcard.new(
+  question: "Où se trouve Louis XVI le 14 juillet 1789 au matin ?",
+  answer: "À la chasse")
+f8.user = user2
+f8.mission = m2
+f8.save!
+
+f9 = Flashcard.new(
+  question: "À qui doit-on la citation : « Allez dire à votre maître que nous sommes ici par la volonté du peuple et qu’on ne nous en arrachera que par la puissance des baïonnettes. » ?",
+  answer: "Comte de Mirabeau")
+f9.user = user2
+f9.mission = m2
+f9.save!
+
+f10 = Flashcard.new(
+  question: "À quelle heure les prisonniers sont-ils libérés ?",
+  answer: "17h")
+f10.user = user2
+f10.mission = m2
+f10.save!
+
+f11 = Flashcard.new(
+  question: "Qu'est ce que la délocalisation ?",
+  answer: "La délocalisation est un transfert d'activités, de capitaux et d'emplois vers des régions offrant des avantages compétitifs (en particulier une main-d’œuvre bon marché).")
+f11.user = user2
+f11.mission = m27
+f11.save!
+
+f12 = Flashcard.new(
+  question: "Qu'est-ce que la littoralisation ?",
+  answer: "C'est un mouvement de concentration des hommes et des activités sur les littoraux ou littoralisation.")
+f12.user = user2
+f12.mission = m27
+f12.save!
+
+f13 = Flashcard.new(
+  question: "Que signifie ZIP ?",
+  answer: "Zones industialo-portuaires")
+f13.user = user2
+f13.mission = m27
+f13.save!
+
+f14 = Flashcard.new(
+  question: "Où se situe le Northern Range ?",
+  answer: "Sur la Manche et la Mer du Nord, c'est une façade maritime active.")
+f14.user = user2
+f14.mission = m27
+f14.save!
+
+f15 = Flashcard.new(
+  question: "Qui sont les altermondialistes ?",
+  answer: "Depuis les années 1990, les altermondialistes dénoncent les injustices sociales et les dégâts écologiques qui seraient provoquées par la mondialisation.")
+f15.user = user2
+f15.mission = m27
+f15.save!
+
+f16 = Flashcard.new(
+  question: "Quels sont les effets positifs de la délocalisation ?",
+  answer: "• Augmentation du pouvoir d’achat car baisse des prix.
+  • Création d'emplois car hausse de la demande et donc augmentation des parts de marché.
+  • Nouvelles zones d’activités comme les zones franches.")
+f16.user = user2
+f16.mission = m27
+f16.save!
+
+f17 = Flashcard.new(
+  question: "Quels sont les effets negatifs de la délocalisation ?",
+  answer: "• Destructions d'emplois et chômage dans le Nord.
+  • Aggravation des conditions de travail pour faire face à la concurrence.
+  • Développement de friches industrielle. Perte d’identité culturelle. Conditions de travail difficiles dans le Sud
+  • Dépendance vis-à-vis des pays développés du Nord.")
+f17.user = user2
+f17.mission = m27
+f17.save!
+
+f18 = Flashcard.new(
+  question: "Qu'est-ce que le « Hard Power » ?",
+  answer: "Le hard power désigne l'influence d'un Etat par des moyens politiques, militaires ou économiques. ")
+f18.user = user2
+f18.mission = m27
+f18.save!
+
+f19 = Flashcard.new(
+  question: "Quel pays est le plus gros producteur mondial ?",
+  answer: "Les États-Unis d'Amérique")
+f19.user = user2
+f19.mission = m27
+f19.save!
+
+f20 = Flashcard.new(
+  question: "Que signifie PMA ?",
+  answer: "Pays les Moins Avancés")
+f20.user = user2
+f20.mission = m28
+f20.save!
+
+f21 = Flashcard.new(
+  question: "Que sont les états pétroliers ?",
+  answer: "Les états du Moyen-Orient et d'Asie Centrale qui tirent leurs richesses de l'exploitation des hydrocarbures.")
+f21.user = user2
+f21.mission = m28
+f21.save!
+
+f22 = Flashcard.new(
+  question: "Qu'est ce que l'IDH ? ",
+  answer: "L'indice de développement humain.
+    L'IDH est un indice qui se fonde à la fois sur l'espérance de vie à la naissance, le niveau de vie et le niveau de l'éducation.")
+f22.user = user2
+f22.mission = m28
+f22.save!
+
+f23 = Flashcard.new(
+  question: "Quels sont les « pays ateliers » ?",
+  answer: "Mexique, Maghreb, Turquie et pays d'Asie du Sud-Est")
+f23.user = user2
+f23.mission = m28
+f23.save!
+
+f24 = Flashcard.new(
+  question: "Quels déséquilibres a entrainés la mondialisation ? ",
+  answer: "Elle a accentué les disparités entre les populations urbaines et les populations rurales, entre les catégories instruites et celles qui ne peuvent avoir accès à l'éducation.")
+f24.user = user2
+f24.mission = m28
+f24.save!
+
+f25 = Flashcard.new(
+  question: "De quoi dépendent les « pays ateliers » ?",
+  answer: "Les « pays ateliers » dépendent des carnets de commandes des pays riches (États-Unis, Union Européenne, Japon... ). ")
+f25.user = user2
+f25.mission = m28
+f25.save!
+
+f26 = Flashcard.new(
+  question: "Quels sont les pays émergents ?",
+  answer: "Les pays émergents sont des pays en transition : entre Sud et Nord, ils accomplissent à leur rythme le parcours que les États du Nord ont accomplis au 19e siècle au moment de la Révolution Industrielle. Ce sont toutefois de véritables concurrents pour les pays riches. ")
+f26.user = user2
+f26.mission = m28
+f26.save!
+
+f27 = Flashcard.new(
+  question: "Citer les principaux poétes du mouvement romantique ?",
+  answer: "Alphonse de Lamartine (1790-1869),
+    Alfred de Vigny (1797-1863),
+    Alfred de Musset (1810-1857)")
+f27.user = user1
+f27.mission = m32
+f27.save!
+
+f28 = Flashcard.new(
+  question: "Quels messages essaient de faire passer les poètes du mouvement romantique ?",
+  answer: "Le poète romantique tente d'exprimer le « Mal du siècle » et de proposer à celui qui le ressent une analyse et une évasion dans un monde plus propice à l'épanouissement de la sensibilité.")
+f28.user = user1
+f28.mission = m32
+f28.save!
+
+f29 = Flashcard.new(
+  question: "Qu'est-ce que Le Parnasse ?",
+  answer: "Le Parnasse apparaît en réaction contre la « sensiblerie » romantique. Ce courant refuse à cette dernière son expression des sentiments pour se consacrer à une poésie plus formelle.")
+f29.user = user1
+f29.mission = m32
+f29.save!
+
+puts "... #{Flashcard.count}/29 flashcards created.
+"
+
 puts "
 ######################
       Test...
@@ -491,6 +709,9 @@ p Chapter.all
 
 puts "Mission.all :"
 p Mission.all
+
+puts "Flashcard.all :"
+p Flashcard.all
 
 
 puts "######################
