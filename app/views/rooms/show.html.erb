@@ -6,10 +6,19 @@
     <div class="col-md-10 principal-content">
       <div class="d-flex justify-between my-5">
         <% if current_user.teacher? %>
-          <h2 class="mx-3"><strong>Niveau : </strong><%= @room.level %> </h3>
-          <h3 class="mx-3"><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
+          <div class="room-info">
+            <h2 class="mx-3 mb-2"><strong>Niveau : </strong><%= @room.level %> </h2>
+            <h3 class="mx-3"><strong>Identifiant de la classe : </strong><%= @room.id %> </h3>
+          </div>
         <% else %>
-          <h2 class="ml-3 mr-3"><strong><%= @room.subject.name %></strong></h3>
+          <div class="room-info">
+            <h2 class="mx-3 mb-2"><strong><%= @room.subject.name %></strong></h2>
+            <% if @room.user == current_user %>
+              <h3 class="mx-3">Vous avez créé cette matière.</h3>
+            <% else %>
+              <h3 class="mx-3"><strong>Enseignant : </strong><%= @room.user.profile.gender %>. <%= @room.user.profile.last_name %></h3>
+            <% end %>
+          </div>
         <% end %>
         <% if @room.user == current_user %>
           <div class=" flex flex-col mr-4"> <!-- my-2 -ml-3 mr-4 -->

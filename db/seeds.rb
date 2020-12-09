@@ -53,7 +53,11 @@ user1.save!
 
 user2 = User.new(email: "teacher@rocket.com", password: "azerty123456", teacher: true)
 user2.save!
-puts "... #{User.count}/2 users created.
+
+user3 = User.new(email: "demo@rocket.com", password: "rocket496", teacher: false)
+user3.save!
+
+puts "... #{User.count}/3 users created.
 "
 
 puts "Creating profiles..."
@@ -66,7 +70,11 @@ profile2 = Profile.new(first_name: "Buzz", last_name: "Aldrin", gender: "Mr")
 profile2.user = user2
 profile2.save!
 
-puts "... #{Profile.count}/2 profiles created.
+profile3 = Profile.new(first_name: "Buzz", last_name: "Lightning", gender: "Mr")
+profile3.user = user3
+profile3.save!
+
+puts "... #{Profile.count}/3 profiles created.
 "
 
 puts "Creating Subjects..."
@@ -87,7 +95,11 @@ geo = Subject.new(name: "Géographie")
 geo.user = user2
 geo.save!
 
-puts "... #{Subject.count}/4 subjects created.
+francais_demo = Subject.new(name: "Français")
+francais_demo.user = user3
+francais_demo.save!
+
+puts "... #{Subject.count}/5 subjects created.
 "
 
 puts "Creating Rooms..."
@@ -122,8 +134,12 @@ r6.subject = maths
 r6.user = maths.user
 r6.save!
 
+r7 = Room.new
+r7.subject = francais_demo
+r7.user = francais_demo.user
+r7.save!
 
-puts "... #{Room.count}/6 rooms created.
+puts "... #{Room.count}/7 rooms created.
 "
 
 puts "Creating Accesses..."
@@ -168,7 +184,22 @@ a7.save!
 # a8.room = r4
 # a8.save!
 
-puts "... #{Access.count}/7 accesses created.
+a9 = Access.new
+a9.user = user3
+a9.room = r1
+a9.save!
+
+a10 = Access.new
+a10.user = user3
+a10.room = r4
+a10.save!
+
+a11 = Access.new
+a11.user = user3
+a11.room = r7
+a11.save!
+
+puts "... #{Access.count}/10 accesses created.
 "
 
 puts "Creating Chapters..."
@@ -263,8 +294,20 @@ c15.room = r6
 c15.subject = r6.subject
 c15.save!
 
+c16 = Chapter.new(name: "Poésie")
+c16.user = user3
+c16.room = r7
+c16.subject = r7.subject
+c16.save!
 
-puts "... #{Chapter.count}/15 chapters created.
+c17 = Chapter.new(name: "Lecture")
+c17.user = user3
+c17.room = r7
+c17.subject = r7.subject
+c17.save!
+
+
+puts "... #{Chapter.count}/17 chapters created.
 "
 
 
@@ -462,7 +505,28 @@ m38.user = user1
 m38.chapter = c15
 m38.save!
 
-puts "... #{Mission.count}/38 missions created.
+m39 = Mission.new(name: "Les courants")
+m39.user = user3
+m39.chapter = c16
+m39.save!
+
+m40 = Mission.new(name: "Rimbaud et Romantisme")
+m40.user = user3
+m40.chapter = c16
+m40.save!
+
+m41 = Mission.new(name: "Les Misérables")
+m41.user = user3
+m41.chapter = c17
+m41.save!
+
+m42 = Mission.new(name: "Le Tour du Monde en 80 jours")
+m42.user = user3
+m42.chapter = c17
+m42.save!
+
+
+puts "... #{Mission.count}/42 missions created.
 "
 
 
@@ -680,7 +744,30 @@ f29.user = user1
 f29.mission = m32
 f29.save!
 
-puts "... #{Flashcard.count}/29 flashcards created.
+f30 = Flashcard.new(
+  question: "Citer les principaux poétes du mouvement romantique ?",
+  answer: "Alphonse de Lamartine (1790-1869),
+    Alfred de Vigny (1797-1863),
+    Alfred de Musset (1810-1857)")
+f30.user = user3
+f30.mission = m39
+f30.save!
+
+f31 = Flashcard.new(
+  question: "Quels messages essaient de faire passer les poètes du mouvement romantique ?",
+  answer: "Le poète romantique tente d'exprimer le « Mal du siècle » et de proposer à celui qui le ressent une analyse et une évasion dans un monde plus propice à l'épanouissement de la sensibilité.")
+f31.user = user3
+f31.mission = m39
+f31.save!
+
+f32 = Flashcard.new(
+  question: "Qu'est-ce que Le Parnasse ?",
+  answer: "Le Parnasse apparaît en réaction contre la « sensiblerie » romantique. Ce courant refuse à cette dernière son expression des sentiments pour se consacrer à une poésie plus formelle.")
+f32.user = user3
+f32.mission = m39
+f32.save!
+
+puts "... #{Flashcard.count}/32 flashcards created.
 "
 
 puts "
