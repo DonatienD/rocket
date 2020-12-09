@@ -4,7 +4,7 @@
       <%= render 'shared/sidebar' %>
     </div>
     <div class="col-md-10 principal-content">
-      <h1 class="mb-5 mt-3">Bievenue à bord, <%= @profile.first_name %> !</h1>
+      <h1 class="mb-5 mt-3">Bienvenue à bord, <%= @profile.first_name %> !</h1>
       <% if current_user.teacher? %>
       <% current_user.subjects.each do |subject| %>
       <h2><%= subject.name %></h2>
