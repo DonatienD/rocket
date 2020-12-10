@@ -32,11 +32,12 @@ export const initPlay = () => {
   const goToNextCard = (event) => {
     // Select current FC (both sides)
     const currentFlashcard = document.querySelector(".flashcard.block");
-    // Hide current FC
-    currentFlashcard.classList.remove("block");
-    currentFlashcard.classList.add("hidden");
-    // If there are still cards to complete, show next card
+    // If there are still cards to complete...
     if (currentFlashcard.nextElementSibling) {
+      // Hide current FC
+      currentFlashcard.classList.remove("block");
+      currentFlashcard.classList.add("hidden");
+      // Show next card
       currentFlashcard.nextElementSibling.classList.remove("hidden");
       currentFlashcard.nextElementSibling.classList.add("block");
       // Hide validation buttons
@@ -45,9 +46,18 @@ export const initPlay = () => {
       incorrectButton.classList.remove("block");
       incorrectButton.classList.add("hidden");
     } else {
-      // Else, go back to first card
-      flashcards[0].classList.remove("hidden");
-      flashcards[0].classList.add("block");
+      // Else, hide validation buttons
+      // And display return button, to go back to subject
+      correctButton.classList.remove("block");
+      correctButton.classList.add("hidden");
+      incorrectButton.classList.remove("block");
+      incorrectButton.classList.add("hidden");
+      returnButton.classList.remove("hidden");
+      returnButton.classList.add("block");
+      topReturnButton.classList.add("hidden");
+      // Uncomment if you want to loop over cards
+      // flashcards[0].classList.remove("hidden");
+      // flashcards[0].classList.add("block");
     };
   };
 
@@ -67,18 +77,10 @@ export const initPlay = () => {
         // Each button is associated with the action of flipping its card
         flipCard(flashcards[index]);
         // Check if last FC
-        if (index === flashcards.length - 1) {
-          // Display return button, to go back to subject
-          returnButton.classList.remove("hidden");
-          returnButton.classList.add("block");
-          topReturnButton.classList.add("hidden");
-        } else {
-          // Display validation buttons, to go to next card
-          correctButton.classList.remove("hidden");
-          correctButton.classList.add("block");
-          incorrectButton.classList.remove("hidden");
-          incorrectButton.classList.add("block");
-        };
+        correctButton.classList.remove("hidden");
+        correctButton.classList.add("block");
+        incorrectButton.classList.remove("hidden");
+        incorrectButton.classList.add("block");
       });
     });
   };
