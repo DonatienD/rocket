@@ -36,7 +36,19 @@
       <div class="container">
         <% @chapters.each do |chapter| %>
           <div class="chapter mt-4">
-            <h3><%= chapter.name %></h3>
+            <div class="flex items-end">
+              <h3><%= chapter.name %></h3>
+              <% if @room.user == current_user %>
+                <%= link_to new_chapter_mission_path(chapter) do %>
+                  <div class= "flex items-center ml-4 mb-0.5 font-small text-white opacity-30 hover:opacity-50 hover:no-underline transition duration-300 ease-in-out">
+                    <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Ajouter une mission
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
             <div class="container flex flex-wrap">
               <% chapter.missions.each do |mission| %>
               <!-- If teacher, click on FC to go to edit view -->

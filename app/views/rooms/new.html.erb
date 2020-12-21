@@ -1,12 +1,31 @@
-<div class="container">
-  <h1>Créer une nouvelle classe</h1>
-  <div>
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-gray-50 p-5 lg:p-8 rounded-xl shadow-lg">
+    <div>
+      <h2 class="text-center text-3xl font-extrabold text-gray-900">
+        Créer une nouvelle classe
+      </h2>
+
+    </div>
     <%= simple_form_for [@room] do |f| %>
-      <div class="form-inputs">
-        <%= f.input :level, label: 'Niveau', placeholder: 'Exemple : 4e ou Terminale S',class: "form-control" %>
-        <%= f.association :subject, collection: @subjects, include_blank: false %>
+      <div class="rounded-md shadow-sm -space-y-px form-inputs">
+        <div>
+          <label for="room_id" class="sr-only">Niveau</label>
+          <%= f.input :level,
+                      label: 'Niveau',
+                      placeholder: 'Exemple : 4e ou Terminale S',
+                      class: "bg-yellow appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+          <%= f.association :subject,
+                            collection: @subjects,
+                            include_blank: false,
+                            label: 'Matière',
+                            class: "relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+        </div>
       </div>
-      <%= f.button :submit, 'Créer ma classe', class: "search-button" %>
+      <div class="form-actions">
+        <%= f.button :submit,
+                      'Créer la classe',
+                      class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      </div>
     <% end %>
   </div>
 </div>
