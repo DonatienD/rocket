@@ -1,11 +1,26 @@
-<div class="container">
-    <h1>Quel est l'identifiant de la classe à rejoindre ?</h1>
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-gray-50 p-5 lg:p-8 rounded-xl shadow-lg">
     <div>
-      <%= simple_form_for [@access] do |f| %>
-        <div class="form-inputs">
-          <%= f.input :room_id, label: 'ID', placeholder: '6342',class: "form-control" %>
-        </div>
-        <%= f.button :submit, 'Rejoindre la classe', class: "search-button" %>
-      <% end %>
+      <h2 class="text-center text-3xl font-extrabold text-gray-900">
+        Quel est l'identifiant de la classe à rejoindre ?
+      </h2>
+
     </div>
+    <%= simple_form_for [@access] do |f| %>
+      <div class="rounded-md shadow-sm -space-y-px form-inputs">
+        <div>
+          <label for="room_id" class="sr-only">Identifiant de la classe</label>
+          <%= f.input :room_id,
+                      label: 'ID',
+                      placeholder: '6342',
+                      class: "bg-yellow appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit,
+                      'Rejoindre la classe',
+                      class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      </div>
+    <% end %>
   </div>
+</div>
