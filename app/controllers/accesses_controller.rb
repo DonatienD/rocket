@@ -9,11 +9,22 @@ class AccessesController < ApplicationController
     @access = Access.new(access_params)
     @access.user = current_user
     authorize @access
-    @access.save
-    if @access.save
+    # Check whether student hasn't already joined room
+    if current_user.accesses.where(room_id: params[:access][:room_id]).present?
       redirect_to dashboard_path
+      flash[:alert] = "Vous avez déjà rejoint cette classe."
+      # Check whether room exists
+    elsif !Room.where(id: params[:access][:room_id]).present?
+      redirect_to dashboard_path
+      flash[:alert] = "Cette classe n'existe pas."
+      # Save access
     else
-      render :new
+      @access.save
+      if @access.save
+        redirect_to dashboard_path
+      else
+        render :new
+      end
     end
   end
 
