@@ -1,20 +1,66 @@
-<h2>Log in</h2>
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-gray-50 p-5 lg:p-8 rounded-xl shadow-lg">
+    <div>
+      <%= image_tag("rocketlogo.png", alt: "Rocket logo", class: "mx-auto h-26 w-auto r-avatar") %>
+      <!-- <img class="" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"> -->
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Connectez-vous à Rocket
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Ou
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to " Créez-vous un compte", new_registration_path(resource_name), class: "font-medium text-blue-900 hover:text-blue-800" %><br />
+        <% end %>
+      </p>
+    </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: "mt-8 space-y-6") do |f| %>
+      <div class="rounded-md shadow-sm -space-y-px form-inputs">
+        <div>
+          <label for="user_email" class="sr-only">Adresse Email</label>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" },
+                      label: false,
+                      placeholder: 'Email',
+                      error: 'Veuillez renseigner une adresse email',
+                      class: "bg-yellow appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+        <div>
+          <label for="user_password" class="sr-only">Mot de passe</label>
+          <%= f.input :password,
+                      required: true,
+                      input_html: { autocomplete: "current-password" },
+                      label: false,
+                      placeholder: 'Mot de passe',
+                      error: 'Veuillez renseigner votre mot de passe',
+                      class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center text-sm text-gray-700">
+          <%= f.input :remember_me,
+                      label: 'Se souvenir de moi',
+                      class: "text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded",
+                      as: :boolean if devise_mapping.rememberable? %>
+          <!-- <label for="remember_me" class="ml-2 text-sm text-gray-900">
+            Se souvenir de moi
+          </label> -->
+        </div>
+
+        <div class="text-sm text-right mb-3">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: "font-medium text-blue-900 hover:text-blue-800" %><br />
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit,
+                      "Connexion",
+                      class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

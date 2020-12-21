@@ -1,7 +1,7 @@
 <!-- Add style with classes (et avec classe aussi ;-]) -->
 <div class="sidebar p-3">
   <div class="r-avatar" >
-    <%= image_tag("rocketlogo.png",alt: "avatar") %>
+    <%= image_tag("rocketlogo.png",alt: "Rocket logo") %>
   </div>
   <p class="text-center"><%= current_user.profile.first_name %> <%= current_user.profile.last_name %></p>
   <% if current_user.teacher? %>
