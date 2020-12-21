@@ -9,10 +9,6 @@ class ApplicationController < ActionController::Base
 
   # Uncomment when you *really understand* Pundit!
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  def user_not_authorized
-    flash[:alert] = "Vous n'avez pas l'autorisation pour faire cette action."
-    redirect_to(root_path)
-  end
 
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
@@ -30,5 +26,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:teacher])
+  end
+
+  def user_not_authorized
+    flash[:alert] = "Vous n'avez pas l'autorisation pour faire cette action."
+    redirect_to(root_path)
   end
 end
