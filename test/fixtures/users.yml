@@ -1,0 +1,8 @@
+student:
+  email : "student_test@rocket.com"
+  encrypted_password : <%= Devise::Encryptor.digest(User, 'password') %>
+
+teacher:
+  email : "teacher_test@rocket.com"
+  encrypted_password : <%= Devise::Encryptor.digest(User, 'password') %>
+  teacher: true
