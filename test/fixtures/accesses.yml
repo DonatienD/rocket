@@ -1,0 +1,14 @@
+teacher_access:
+  user: teacher
+  room: teacher_room
+  id: 1
+
+student_access:
+  user: student
+  room: student_room
+  id: 2
+
+student_access_to_teacher_room:
+  user: student
+  room: teacher_room
+  id: 3

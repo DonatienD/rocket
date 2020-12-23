@@ -1,0 +1,17 @@
+french_chapter:
+  name: Poetry
+  user: teacher
+  room: teacher_room
+  subject: teacher_subject
+
+maths_chapter:
+  name: Circles
+  user: teacher
+  room: teacher_room_without_student_access
+  subject: teacher_subject_without_student_access
+
+history_chapter:
+  name: French Revolution
+  user: student
+  room: student_room
+  subject: student_subject

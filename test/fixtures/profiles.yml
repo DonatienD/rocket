@@ -1,0 +1,11 @@
+student_profile:
+  first_name: Thomas
+  last_name: Pesquet
+  gender: Mr
+  user: student
+
+teacher_profile:
+  first_name: Buzz
+  last_name: Aldrin
+  gender: Mr
+  user: teacher

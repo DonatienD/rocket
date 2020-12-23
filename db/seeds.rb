@@ -722,7 +722,7 @@ f26.mission = m28
 f26.save!
 
 f27 = Flashcard.new(
-  question: "Citer les principaux poétes du mouvement romantique ?",
+  question: "Citer les principaux poètes du mouvement romantique ?",
   answer: "Alphonse de Lamartine (1790-1869),
     Alfred de Vigny (1797-1863),
     Alfred de Musset (1810-1857)")

@@ -1,0 +1,14 @@
+french_mission:
+  name: Rimbaud and Romantism
+  user: teacher
+  chapter: french_chapter
+
+maths_mission:
+  name: Formulas
+  user: teacher
+  chapter: maths_chapter
+
+history_mission:
+  name: The Lumieres
+  user: student
+  chapter: history_chapter

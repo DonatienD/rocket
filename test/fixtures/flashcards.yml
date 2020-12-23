@@ -1,0 +1,17 @@
+french_flashcard:
+  question: Which are the main romantism poets?
+  answer: Lamartine, Vigny, Musset
+  user: teacher
+  mission: french_mission
+
+maths_flashcard:
+  question: How do you compute a circle perimeter?
+  answer: 2*pi*r
+  user: teacher
+  mission: maths_mission
+
+history_flashcard:
+  question: What is the date of the Prise de la Bastille?
+  answer: July 14th 1789
+  user: student
+  mission: history_mission
