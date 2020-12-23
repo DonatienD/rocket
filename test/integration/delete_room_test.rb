@@ -28,7 +28,7 @@ class DeleteRoomFlowTest < ActionDispatch::IntegrationTest
 
     sign_out :student
 
-    # Student shouldn't delete teacher's room
+    # Teacher shouldn't delete student's room
     sign_in users(:teacher)
 
     @student_room = rooms(:student_room)
