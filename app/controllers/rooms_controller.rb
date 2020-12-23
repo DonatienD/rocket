@@ -31,6 +31,14 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    @room = Room.find(params[:id])
+    authorize @room
+    @room.destroy
+
+    redirect_to dashboard_path
+  end
+
   private
 
   def room_params

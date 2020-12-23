@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get :play
     end
   end
-  resources :rooms, only: [:new, :create]
+  resources :rooms, only: [:new, :create, :destroy]
   resources :rooms, only: [:show] do
     resources :chapters, only: [:new, :create]
   end

@@ -12,13 +12,23 @@
       <div class="rounded-md shadow-sm -space-y-px form-inputs">
         <div>
           <label for="user_email" class="sr-only">Adresse Email</label>
+          <%= f.input :teacher,
+                      label: 'Je suis...',
+                      collection: [['Un étudiant', 'false'], ['Un professeur', 'true']],
+                      label_method: :first,
+                      value_method: :second,
+                      as: :radio_buttons,
+                      class: "bg-yellow appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+        <div>
+          <label for="user_email" class="sr-only">Adresse Email</label>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" },
                       label: false,
                       placeholder: 'Email',
-                      error: 'Veuillez renseigner une adresse email',
+                      error: 'Veuillez renseigner une adresse email valide',
                       class: "bg-yellow appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
         </div>
         <div>
@@ -30,16 +40,19 @@
                       hint: ("#{@minimum_password_length} charactères minimum" if @minimum_password_length),
                       placeholder: 'Mot de passe',
                       error: "Mot de passe invalide",
-                      class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+                      class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm password_field_1",
+                      id: 'password_field_1' %>
         </div>
         <div>
           <label for="user_password_confirmation" class="sr-only">Confirmation du mot de passe</label>
-          <%= f.input :password,
+          <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" },
                       label: false,
+                      error: "Mot de passe invalide",
                       placeholder: 'Confirmation du mot de passe',
-                      class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+                      class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm password_field_2",
+                      id: 'password_field_2' %>
         </div>
       </div>
 
