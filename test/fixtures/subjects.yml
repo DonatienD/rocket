@@ -1,0 +1,11 @@
+teacher_subject:
+  name: French
+  user: teacher
+
+teacher_subject_without_student_access:
+  name: Maths
+  user: teacher
+
+student_subject:
+  name: History
+  user: student

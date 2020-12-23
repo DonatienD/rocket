@@ -1,0 +1,13 @@
+teacher_room:
+  level: 4e
+  subject: teacher_subject
+  user: teacher
+
+teacher_room_without_student_access:
+  level: 4e
+  subject: teacher_subject_without_student_access
+  user: teacher
+
+student_room:
+  subject: student_subject
+  user: student
