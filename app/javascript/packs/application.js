@@ -29,11 +29,15 @@ import 'bootstrap';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initPlay } from '../components/play';
+import { roomOptionsDropdownAction } from '../components/room_options_dropdown';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   if (document.querySelector("#active") || document.querySelector("#unactive")) {
     initPlay();
+  };
+  if (document.querySelector("#room-options-dropdown-button")) {
+    roomOptionsDropdownAction();
   };
 });
