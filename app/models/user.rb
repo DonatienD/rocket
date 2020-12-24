@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile
-  has_many :accesses
-  has_many :chapters
-  has_many :flashcards
-  has_many :missions
-  has_many :rooms
+  has_one :profile, dependent: :destroy
+  has_many :accesses, dependent: :destroy
+  has_many :chapters, dependent: :destroy
+  has_many :flashcards, dependent: :destroy
+  has_many :missions, dependent: :destroy
+  has_many :rooms, dependent: :destroy
   has_many :rooms, through: :accesses
-  has_many :subjects
+  has_many :subjects, dependent: :destroy
 end
