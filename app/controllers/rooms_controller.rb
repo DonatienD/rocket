@@ -4,6 +4,8 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     authorize @room
     @chapters = @room.chapters
+    # Select access linked to room to give ability to quit room
+    @access = @room.accesses.where(user_id: current_user.id)[0]
   end
 
   def new

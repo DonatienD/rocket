@@ -28,6 +28,14 @@ class AccessesController < ApplicationController
     end
   end
 
+  def destroy
+    @access = Access.find(params[:id])
+    authorize @access
+    @access.destroy
+
+    redirect_to dashboard_path
+  end
+
   private
 
   def access_params

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/dashboard', to: 'pages#dashboard'
-  resources :accesses, only: [:new, :create]
+  resources :accesses, only: [:new, :create, :destroy]
   resources :chapters, only: :show do
     resources :missions, only: [:new, :create]
   end
