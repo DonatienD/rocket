@@ -57,6 +57,14 @@
                               data: { confirm: "Êtes-vous certain.e de vouloir supprimer cette #{current_user.teacher ? 'classe' : 'matière'} ?" },
                               class: "block px-4 py-2 text-sm text-red-700 hover:bg-red-100 hover:text-red-900" %>
                 </div>
+              <% elsif policy(@access).destroy? %>
+                <div class="py-1">
+                  <%= link_to "Quitter la classe",
+                              access_path(@access),
+                              method: :delete,
+                              data: { confirm: "Êtes-vous certain.e de vouloir quitter cette classe ?" },
+                              class: "block px-4 py-2 text-sm text-red-700 hover:bg-red-100 hover:text-red-900" %>
+                </div>
               <% end %>
             </div>
           </div>
