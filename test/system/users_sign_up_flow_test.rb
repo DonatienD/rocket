@@ -24,6 +24,21 @@ class UsersTest < ApplicationSystemTestCase
 
     assert User.last.valid?, "Created user is not valid"
     assert_not User.last.teacher, "Student has 'teacher: true'"
+
+    assert_difference 'Profile.count' do
+      choose "Mr"
+
+      fill_in "Nom", with: "Jean"
+      # save_and_open_screenshot
+      fill_in "Prénom", with: 'Paul'
+      # save_and_open_screenshot
+
+      click_on "Créer mon profil"
+      # save_and_open_screenshot
+    end
+
+    assert Profile.last.valid?, "Created profile is not valid"
+
     sign_out :user
 
     # Should not be able to create a duplicate account
@@ -68,6 +83,21 @@ class UsersTest < ApplicationSystemTestCase
 
     assert User.last.valid?, "Created user is not valid"
     assert User.last.teacher, "Teacher has 'teacher: false'"
+
+    assert_difference 'Profile.count' do
+      choose "Mme"
+
+      fill_in "Nom", with: "Jeanne"
+      # save_and_open_screenshot
+      fill_in "Prénom", with: 'Blanc'
+      # save_and_open_screenshot
+
+      click_on "Créer mon profil"
+      # save_and_open_screenshot
+    end
+
+    assert Profile.last.valid?, "Created profile is not valid"
+
     sign_out :user
 
     # Should not be able to create a duplicate account

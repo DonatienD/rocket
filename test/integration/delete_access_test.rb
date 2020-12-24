@@ -38,7 +38,7 @@ class DeleteAccessTest < ActionDispatch::IntegrationTest
     assert Access.all.include?(@teacher_access), "Access was deleted"
   end
 
-  test "Teacher should not be able to delete an student access" do
+  test "Teacher should not be able to delete a student access" do
     sign_in users(:teacher)
 
     @student_access = accesses(:student_access_to_teacher_room)
@@ -49,30 +49,4 @@ class DeleteAccessTest < ActionDispatch::IntegrationTest
 
     assert Access.all.include?(@student_access), "Access was deleted"
   end
-
-  # test "User should not be able to delete a room he did not create" do
-  #   # Student shouldn't delete teacher's room
-  #   sign_in users(:student)
-
-  #   @teacher_room = rooms(:teacher_room)
-
-  #   assert_no_difference 'Room.count', "Teacher room was deleted by student" do
-  #     delete "/rooms/#{rooms(:teacher_room).id}"
-  #   end
-
-  #   assert Room.all.include?(@teacher_room), "Teacher room was deleted by student"
-
-  #   sign_out :student
-
-  #   # Teacher shouldn't delete student's room
-  #   sign_in users(:teacher)
-
-  #   @student_room = rooms(:student_room)
-
-  #   assert_no_difference 'Room.count', "Student room was deleted by Teacher" do
-  #     delete "/rooms/#{rooms(:student_room).id}"
-  #   end
-
-  #   assert Room.all.include?(@student_room), "Student room was deleted by Teacher"
-  # end
 end
