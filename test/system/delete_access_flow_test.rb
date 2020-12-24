@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class DeleteAccessFlowsTest < ApplicationSystemTestCase
 
-  test "Deleting an access as a student" do
+  test "Student should be able to delete an access he created to teacher room" do
     sign_in users(:student)
 
     @room = rooms(:teacher_room)
@@ -22,6 +22,23 @@ class DeleteAccessFlowsTest < ApplicationSystemTestCase
     click_on "Tableau de bord"
 
     assert_not Access.all.include?(@student_access), "Access was not deleted"
+  end
+
+  test "Student should not be able to delete an access to its own room" do
+    sign_in users(:student)
+
+    @room = rooms(:student_room)
+    @student_access = accesses(:student_access)
+
+    visit room_path(@room)
+
+    click_on "Options"
+
+    assert_raise do
+      click_link('Quitter la classe')
+    end
+
+    assert Access.all.include?(@student_access), "Access was not deleted"
   end
 
   test "Teacher should not be able to delete an access to its own room" do
