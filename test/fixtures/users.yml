@@ -6,3 +6,12 @@ teacher:
   email : "teacher_test@rocket.com"
   encrypted_password : <%= Devise::Encryptor.digest(User, 'password') %>
   teacher: true
+
+student_without_profile:
+  email : "student_test_no_profile@rocket.com"
+  encrypted_password : <%= Devise::Encryptor.digest(User, 'password') %>
+
+teacher_without_profile:
+  email : "teacher_test_no_profile@rocket.com"
+  encrypted_password : <%= Devise::Encryptor.digest(User, 'password') %>
+  teacher: true
