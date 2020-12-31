@@ -12,6 +12,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   # Devise test helpers
   include Devise::Test::IntegrationHelpers
+  include Warden::Test::Helpers
 end
 
 Capybara.register_driver :headless_chrome do |app|
