@@ -4,43 +4,51 @@
       <%= render 'shared/sidebar' %>
     </div>
     <div class="col-md-10 principal-content">
-      <h1 class="mb-5 mt-3">Bienvenue à bord, <%= @profile.first_name %> !</h1>
+      <h1 class="ml-2 mb-5 mt-3">Bienvenue à bord, <%= @profile.first_name %> !</h1>
       <% if current_user.teacher? %>
-        <% current_user.subjects.each do |subject| %>
-          <h2><%= subject.name %></h2>
-          <p><%= subject.rooms.count %> classe(s)</p>
-          <div class="container flex flex-wrap">
-            <% subject.rooms.each do |room| %>
-            <!-- Make a card for each room -->
-              <%= link_to room_path(room) do %>
-                <div class="r-card d-flex mr-3 mb-5 mt-2">
-                  <div class="text-center">
-                    <h3><%= room.level %></h3>
-                    <p><%= room.chapters.count %> chapitre(s)</p>
+        <div class="ml-2">
+          <% current_user.subjects.each do |subject| %>
+            <div class="ml-3">
+              <h2><%= subject.name %></h2>
+              <p><%= subject.rooms.count %> classe(s)</p>
+            </div>
+            <div class="container flex flex-wrap">
+              <% subject.rooms.each do |room| %>
+              <!-- Make a card for each room -->
+                <%= link_to room_path(room) do %>
+                  <div class="r-card d-flex mr-3 mb-5 mt-2">
+                    <div class="text-center">
+                      <h3><%= room.level %></h3>
+                      <p><%= room.chapters.count %> chapitre(s)</p>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
       <% else %>
-        <% current_user.rooms.each do |room| %>
-          <h2><%= room.subject.name %></h2>
-          <p class="mb-3"><%= room.chapters.count %> chapitres(s)</p>
-          <div class="container flex flex-wrap">
-            <% room.chapters.each do |chapter| %>
-            <!-- Make a card for each chapter -->
-              <%= link_to room_path(room) do %>
-                <div class="r-card d-flex mr-3 mb-5 mt-2">
-                  <div class="text-center">
-                    <h4><%= chapter.name %></h4>
-                    <p class="mb-5"><%= chapter.missions.count %> mission(s)</p>
+        <div class="ml-2">
+          <% current_user.rooms.each do |room| %>
+            <div class="ml-3">
+              <h2><%= room.subject.name %></h2>
+              <p class="mb-3"><%= room.chapters.count %> chapitres(s)</p>
+            </div>
+            <div class="container flex flex-wrap">
+              <% room.chapters.each do |chapter| %>
+              <!-- Make a card for each chapter -->
+                <%= link_to room_path(room) do %>
+                  <div class="r-card d-flex mr-3 mb-5 mt-2">
+                    <div class="text-center">
+                      <h4><%= chapter.name %></h4>
+                      <p class="mb-5"><%= chapter.missions.count %> mission(s)</p>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
