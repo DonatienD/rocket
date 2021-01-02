@@ -2,11 +2,11 @@
   <div class="max-w-md w-full space-y-8 bg-gray-50 p-5 lg:p-8 rounded-xl shadow-lg">
     <div>
       <h2 class="text-center text-3xl font-extrabold text-gray-900">
-        Créer une nouvelle mission
+        Modifier la mission
       </h2>
 
     </div>
-    <%= simple_form_for [@chapter, @mission] do |f| %>
+    <%= simple_form_for [@mission] do |f| %>
       <div class="rounded-md shadow-sm -space-y-px form-inputs">
         <div>
           <label for="room_id" class="sr-only">Nom</label>

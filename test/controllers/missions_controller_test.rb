@@ -32,7 +32,8 @@ class MissionsControllerTest < ActionDispatch::IntegrationTest
 
     patch mission_url(teacher_mission), params: { mission: { name: "updated" } }
 
-    # assert_redirected_to mission_path(student_mission)
+    # Pundit error redirects to root path
+    assert_redirected_to root_path
     # Reload association to fetch updated data and assert that name is updated.
     teacher_mission.reload
     assert_equal "Rimbaud and Romantism", teacher_mission.name
@@ -44,7 +45,8 @@ class MissionsControllerTest < ActionDispatch::IntegrationTest
 
     patch mission_url(student_mission), params: { mission: { name: "updated" } }
 
-    # assert_redirected_to mission_path(student_mission)
+    # Pundit error redirects to root path
+    assert_redirected_to root_path
     # Reload association to fetch updated data and assert that name is updated.
     student_mission.reload
     assert_equal "The Lumieres", student_mission.name

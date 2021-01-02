@@ -1,5 +1,6 @@
 class MissionsController < ApplicationController
   before_action :set_chapter, only: [:new, :create]
+  before_action :set_mission, only: [:play, :edit, :update, :destroy]
 
   def show
     @mission = Mission.find(params[:id])
@@ -33,14 +34,23 @@ class MissionsController < ApplicationController
   end
 
   def play
-    @mission = Mission.find(params[:id])
     @chapter = @mission.chapter
     authorize @mission
     @flashcards = @mission.flashcards
   end
 
+  def edit
+    authorize @mission
+  end
+
+  def update
+    authorize @mission
+    @mission.update(mission_params)
+
+    redirect_to mission_path(@mission)
+  end
+
   def destroy
-    @mission = Mission.find(params[:id])
     authorize @mission
     @chapter = @mission.chapter
     @mission.destroy
@@ -52,6 +62,10 @@ class MissionsController < ApplicationController
 
   def set_chapter
     @chapter = Chapter.find(params[:chapter_id])
+  end
+
+  def set_mission
+    @mission = Mission.find(params[:id])
   end
 
   def mission_params
