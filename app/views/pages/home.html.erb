@@ -7,7 +7,8 @@
           <p class="mb-3 text-large text-justify">Fini les longues fiches de révision, dites bonjour à Rocket et son système d'apprentissage par cartes mentales.
           </p>
           <div class="mt-5 text-center">
-            <%= link_to "Accéder à Rocket", new_user_session_path, class: "button-home" %>
+            <!-- Links adapts whether user is already signed in (=> dashboard) or not (=> sign in) -->
+            <%= link_to "Accéder à Rocket", current_user.present? ? dashboard_path : new_user_session_path, class: "button-home" %>
           </div>
         </div>
       </div>

@@ -22,6 +22,14 @@ class MissionPolicy < ApplicationPolicy
     user.accesses.where(room_id: room_id).present?
   end
 
+  def edit?
+    show?
+  end
+
+  def update?
+    show?
+  end
+
   def destroy?
     record.user == user
   end
